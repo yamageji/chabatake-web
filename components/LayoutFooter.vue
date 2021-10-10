@@ -1,11 +1,11 @@
 <template>
   <footer
     class="
+      col-span-8
       h-[60px]
       mt-[24px]
       border-t-[1px] border-warmGray-400
       py-[16px]
-      bg-red-200
     "
   >
     <p class="text-center text-[14px] leading-relaxed whitespace-nowrap">

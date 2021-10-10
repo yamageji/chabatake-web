@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[16px]">
+  <div class="col-span-8 md:col-span-5 mt-[16px]">
     <ul
       v-for="content in data"
       :key="content.id"

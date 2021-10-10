@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   mode: 'jit',
@@ -15,10 +15,14 @@ module.exports = {
       colors: {
         warmGray: colors.warmGray,
       },
+      gridTemplateRows: {
+        // base layout
+        layout: 'auto 1fr auto',
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

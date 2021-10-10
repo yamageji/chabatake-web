@@ -1,5 +1,5 @@
 <template>
-  <main class="w-[960px] p-[24px] mx-auto">
+  <main class="col-span-8 md:col-span-5 mt-[16px]">
     <h1 class="mb-[20px]">{{ title }}</h1>
     <p class="mb-[40px]">{{ publishedAt }}</p>
     <div class="post" v-html="body"></div>
@@ -11,10 +11,10 @@ export default {
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({
       endpoint: `blog/${params.slug}`,
-    })
-    return data
+    });
+    return data;
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
