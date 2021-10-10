@@ -11,7 +11,7 @@
             <h1 class="text-[16px] font-bold">
               {{ content.title }}
             </h1>
-            <time class="text-[14px]">{{ content.date }}</time>
+            <time class="text-[14px]">{{ content.date | formatDate }}</time>
             <CategoryLabel
               v-if="content.category"
               :category="content.category"

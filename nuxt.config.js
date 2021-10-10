@@ -21,7 +21,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/filter.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -67,8 +67,8 @@ export default {
             route: `/${content.id}`,
             payload: content,
           }))
-        )
-      return pages
+        );
+      return pages;
     },
   },
-}
+};

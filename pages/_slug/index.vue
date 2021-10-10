@@ -1,7 +1,7 @@
 <template>
   <main class="col-span-8 md:col-span-5 mt-[16px]">
     <h1 class="mb-[20px]">{{ title }}</h1>
-    <p class="mb-[40px]">{{ publishedAt }}</p>
+    <p class="mb-[40px]">{{ publishedAt | formatDate }}</p>
     <div class="post" v-html="body"></div>
   </main>
 </template>
