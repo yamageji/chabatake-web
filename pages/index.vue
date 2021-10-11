@@ -7,16 +7,40 @@
     >
       <nuxt-link :to="`/${content.id}`">
         <div class="py-[8px]">
-          <li class="p-[8px] hover:bg-gray-200 rounded-[4px]">
-            <h1 class="text-[16px] font-bold">
-              {{ content.title }}
-            </h1>
-            <time class="text-[14px]">{{ content.date | formatDate }}</time>
-            <CategoryLabel
-              v-if="content.category"
-              :category="content.category"
-              class="mt-[8px]"
-            />
+          <li
+            class="
+              flex
+              items-center
+              gap-[12px]
+              p-[8px]
+              hover:bg-gray-200
+              rounded-[4px]
+            "
+          >
+            <div
+              class="
+                flex
+                items-center
+                justify-center
+                h-[80px]
+                w-[80px]
+                bg-gray-300
+                rounded-[8px]
+              "
+            >
+              test
+            </div>
+            <div>
+              <h1 class="text-[16px] font-bold">
+                {{ content.title }}
+              </h1>
+              <time class="text-[14px]">{{ content.date | formatDate }}</time>
+              <CategoryLabel
+                v-if="content.category"
+                :category="content.category"
+                class="mt-[8px]"
+              />
+            </div>
           </li>
         </div>
       </nuxt-link>

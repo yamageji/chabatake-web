@@ -11,9 +11,25 @@
       <p class="mt-[12px] text-[14px]">
         こんにちは、ありがとう、おやすみ、さようなら。こんにちは、ありがとう、おやすみ、さようなら。
       </p>
-      <ul class="flex gap-[12px] mt-[20px]">
-        <li><a href="" class="p-[8px] bg-red-200">twi</a></li>
-        <li><a href="" class="p-[8px] bg-red-200">zen</a></li>
+      <ul class="flex gap-[12px] mt-[16px]">
+        <li class="flex items-center justify-center w-[32px] h-[32px]">
+          <a href="https://zenn.dev/chabatake_i">
+            <img
+              src="~/assets/image/zenn-logo.svg"
+              width="24px"
+              height="24px"
+            />
+          </a>
+        </li>
+        <li class="flex items-center justify-center w-[32px] h-[32px]">
+          <a href="https://zenn.dev/chabatake_i">
+            <img
+              src="~/assets/image/zenn-logo.svg"
+              width="24px"
+              height="24px"
+            />
+          </a>
+        </li>
       </ul>
     </div>
   </div>
