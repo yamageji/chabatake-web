@@ -21,13 +21,34 @@
             />
           </a>
         </li>
-        <li class="flex items-center justify-center w-[32px] h-[32px]">
+        <li
+          class="
+            flex
+            items-center
+            justify-center
+            w-[32px]
+            h-[32px]
+            text-warmGray-500
+            hover:text-[#55acee]
+          "
+        >
           <a href="https://zenn.dev/chabatake_i">
-            <img
-              src="~/assets/image/zenn-logo.svg"
-              width="24px"
-              height="24px"
-            />
+            <font-awesome-icon :icon="['fab', 'twitter']" class="text-[24px]" />
+          </a>
+        </li>
+        <li
+          class="
+            flex
+            items-center
+            justify-center
+            w-[32px]
+            h-[32px]
+            text-warmGray-500
+            hover:text-[#4183c4]
+          "
+        >
+          <a href="https://zenn.dev/chabatake_i">
+            <font-awesome-icon :icon="['fab', 'github']" class="text-[24px]" />
           </a>
         </li>
       </ul>

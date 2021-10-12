@@ -1,3 +1,5 @@
+import * as FontAwesome from './build/fontawesome';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -34,7 +36,15 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-microcms-module',
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
   ],
+  fontawesome: {
+    icons: {
+      solid: FontAwesome.solid,
+      regular: FontAwesome.regular,
+      brands: FontAwesome.brands,
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

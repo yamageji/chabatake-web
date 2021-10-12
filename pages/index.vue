@@ -13,7 +13,7 @@
               items-center
               gap-[12px]
               p-[8px]
-              hover:bg-gray-200
+              hover:bg-warmGray-200
               rounded-[4px]
             "
           >
