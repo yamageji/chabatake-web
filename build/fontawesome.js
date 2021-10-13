@@ -1,4 +1,4 @@
-const solid = [];
+const solid = ['faPencilRuler', 'faLaptopCode'];
 
 const regular = [];
 
