@@ -49,14 +49,29 @@
 </template>
 
 <script>
-import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api';
+import {
+  defineComponent,
+  ref,
+  useFetch,
+  useContext,
+} from '@nuxtjs/composition-api';
 
 export default defineComponent({
   setup() {
     const data = ref('');
 
-    useFetch(async ({ $microcms }) => {
-      const result = await $microcms.get({ endpoint: 'blog' });
+    useFetch(async ({ $microcms, params }) => {
+      const { route } = useContext();
+      const page = route.value.params.p || '1';
+      const limit = 5;
+
+      const result = await $microcms.get({
+        endpoint: 'blog',
+        queries: {
+          limit,
+          offset: `${(page - 1) * limit}`,
+        },
+      });
       data.value = result.contents;
     });
 

@@ -66,16 +66,30 @@ export default {
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/page/:p',
+        component: resolve(__dirname, 'pages/index.vue'),
+        name: 'page',
+      });
+    },
+  },
+
   generate: {
-    async asyncData({ $microcms }) {
-      const pages = await $microcms
-        .get({
-          endpoint: 'blog',
+    async routes() {
+      const limit = 10;
+      const range = (start, end) =>
+        [...Array(end - start + 1)].map((_, i) => start + i);
+
+      // 一覧のページング
+      const pages = await axios
+        .get(`https://your-service-id.microcms.io/api/v1/blog?limit=0`, {
+          headers: { 'X-API-KEY': API_KEY },
         })
         .then((res) =>
-          res.data.contents.map((content) => ({
-            route: `/${content.id}`,
-            payload: content,
+          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+            route: `/page/${p}`,
           }))
         );
       return pages;
