@@ -25,7 +25,7 @@ export default defineComponent({
       if (props.category.name === 'new') {
         return 'bg-red-400 text-red-100';
       } else if (props.category.name === 'dev') {
-        return 'bg-green-400 text-green-100';
+        return 'bg-green-400 text--100';
       } else if (props.category.name === 'design') {
         return 'bg-blue-400 text-blue-100';
       } else if (props.category.name === 'hobby') {

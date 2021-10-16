@@ -2,7 +2,7 @@
   <header class="col-span-8">
     <div class="h-[320px] pt-[16px] px-[16px] md:px-[24px] bg-green-100">
       <h1 class="font-bold text-[24px] text-warmGray-700">
-        <a href="/"> 茶畑WEB </a>
+        <a href="/page/1"> 茶畑WEB </a>
       </h1>
     </div>
     <nav class="w-[350px] mx-auto mt-[36px] my-[12px]">

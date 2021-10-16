@@ -1,4 +1,6 @@
 import * as FontAwesome from './build/fontawesome';
+import { client } from './utils/microcms';
+const { API_KEY, SERVICE_DOMAIN } = process.env;
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -58,14 +60,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  // microcmsの設定
   microcms: {
     options: {
-      serviceDomain: process.env.SERVICE_DOMAIN,
-      apiKey: process.env.API_KEY,
+      serviceDomain: SERVICE_DOMAIN,
+      apiKey: API_KEY,
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
 
+  // ページ用のルーティング
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
@@ -73,26 +77,103 @@ export default {
         component: resolve(__dirname, 'pages/index.vue'),
         name: 'page',
       });
+      routes.push({
+        path: '/category/:categoryId/page/:p',
+        component: resolve(__dirname, 'pages/index.vue'),
+        name: 'category',
+      });
     },
   },
 
   generate: {
+    // choose to suit your project
+    interval: 100,
+
     async routes() {
-      const limit = 10;
       const range = (start, end) =>
         [...Array(end - start + 1)].map((_, i) => start + i);
+      const limit = 50;
+
+      // 詳細ページ
+      const getArticles = (offset = 0) => {
+        return client
+          .get({
+            endpoint: 'blog',
+            queries: {
+              offset,
+              limit,
+              depth: 2,
+            },
+          })
+          .then(async (res) => {
+            let articles = [];
+            if (res.totalCount > offset + limit) {
+              articles = await getArticles(offset + limit);
+            }
+            return [
+              ...res.contents.map((content) => ({
+                route: `/${content.id}`,
+                payload: { content },
+              })),
+              ...articles,
+            ];
+          });
+      };
+      const articles = await getArticles();
+
+      // 一覧ページ
+      const index = {
+        route: '/',
+      };
 
       // 一覧のページング
-      const pages = await axios
-        .get(`https://your-service-id.microcms.io/api/v1/blog?limit=0`, {
-          headers: { 'X-API-KEY': API_KEY },
+      const pages = await client
+        .get({
+          endpoint: 'blog',
+          queries: {
+            limit: 0,
+          },
         })
         .then((res) =>
-          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+          range(1, Math.ceil(res.totalCount / 5)).map((p) => ({
             route: `/page/${p}`,
           }))
         );
-      return pages;
+
+      const categories = await client
+        .get({
+          endpoint: 'categories',
+          queries: {
+            fields: 'id',
+          },
+        })
+        .then(({ contents }) => {
+          return contents.map((content) => content.id);
+        });
+
+      // カテゴリーページのページング
+      const categoryPages = await Promise.all(
+        categories.map((category) =>
+          client
+            .get({
+              endpoint: 'blog',
+              queries: {
+                limit: 0,
+                filters: `category[equals]${category}`,
+              },
+            })
+            .then((res) =>
+              range(1, Math.ceil(res.totalCount / 5)).map((p) => ({
+                route: `/category/${category}/page/${p}`,
+              }))
+            )
+        )
+      );
+
+      // 2次元配列になってるのでフラットにする
+      const flattenCategoryPages = [].concat.apply([], categoryPages);
+
+      return [index, ...articles, ...pages, ...flattenCategoryPages];
     },
   },
 };

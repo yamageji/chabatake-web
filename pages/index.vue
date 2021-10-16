@@ -60,16 +60,22 @@ export default defineComponent({
   setup() {
     const data = ref('');
 
-    useFetch(async ({ $microcms, params }) => {
-      const { route } = useContext();
-      const page = route.value.params.p || '1';
+    const { route } = useContext();
+    const page = route.value.params.p || '1';
+    const categoryId = route.value.params.categoryId;
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    useFetch(async ({ $microcms }) => {
       const limit = 5;
+      const articleFilter =
+        categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
 
       const result = await $microcms.get({
         endpoint: 'blog',
         queries: {
           limit,
-          offset: `${(page - 1) * limit}`,
+          offset: (page - 1) * limit,
+          filters: articleFilter,
         },
       });
       data.value = result.contents;
