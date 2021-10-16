@@ -5,32 +5,54 @@
         <a href="/page/1"> 茶畑WEB </a>
       </h1>
     </div>
-    <nav class="w-[350px] mx-auto mt-[36px] my-[12px]">
-      <ul class="flex gap-[24px] text-warmGray-800">
-        <li class="flex gap-[8px] items-center">
-          <font-awesome-icon :icon="['far', 'newspaper']" class="text-[16px]" />
-          <div class="font-bold text-[18px]">New</div>
+    <nav class="mt-[36px] my-[12px]">
+      <ul class="flex gap-[28px] text-warmGray-800">
+        <li
+          class="
+            h-[28px]
+            box-border
+            hover:border-b-[2px] hover:border-b-warmGray-400
+          "
+        >
+          <a href="/category/new/page/1">
+            <div class="font-bold text-[18px]">New</div>
+          </a>
         </li>
 
-        <li class="flex gap-[8px] items-center">
-          <font-awesome-icon
-            :icon="['fas', 'laptop-code']"
-            class="text-[16px]"
-          />
-          <div class="font-bold text-[18px]">Dev</div>
+        <li
+          class="
+            h-[28px]
+            box-border
+            hover:border-b-[2px] hover:border-b-warmGray-400
+          "
+        >
+          <a href="/category/dev/page/1">
+            <div class="font-bold text-[18px]">Dev</div>
+          </a>
         </li>
 
-        <li class="flex gap-[8px] items-center">
-          <font-awesome-icon
-            :icon="['fa', 'pencil-ruler']"
-            class="text-[16px]"
-          />
-          <div class="font-bold text-[18px]">Design</div>
+        <li
+          class="
+            h-[28px]
+            box-border
+            hover:border-b-[2px] hover:border-b-warmGray-400
+          "
+        >
+          <a href="/category/design/page/1">
+            <div class="font-bold text-[18px]">Design</div>
+          </a>
         </li>
 
-        <li class="flex gap-[8px] items-center">
-          <font-awesome-icon :icon="['fas', 'ghost']" class="text-[16px]" />
-          <div class="font-bold text-[18px]">Hobby</div>
+        <li
+          class="
+            h-[28px]
+            box-border
+            hover:border-b-[2px] hover:border-b-warmGray-400
+          "
+        >
+          <a href="/category/hobby/page/1">
+            <div class="font-bold text-[18px]">Hobby</div>
+          </a>
         </li>
       </ul>
     </nav>
