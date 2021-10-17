@@ -1,9 +1,9 @@
 <template>
-  <div class="col-span-8 md:col-span-5 mt-[16px]">
+  <div class="col-span-2 md:col-span-1 mt-[16px]">
     <ul
       v-for="content in data"
       :key="content.id"
-      class="border-b-[1px] border-warmGray-400"
+      class="border-t-[1px] border-warmGray-400"
     >
       <nuxt-link :to="`/${content.id}`">
         <div class="py-[8px]">
@@ -15,6 +15,9 @@
               p-[8px]
               hover:bg-warmGray-200
               rounded-[4px]
+              transition-bg
+              duration-200
+              ease-in-out
             "
           >
             <div
@@ -30,7 +33,7 @@
               "
             ></div>
             <div>
-              <h1 class="text-[16px] font-bold">
+              <h1 class="text-[18px] font-bold">
                 {{ content.title }}
               </h1>
 
@@ -41,7 +44,7 @@
               <CategoryLabel
                 v-if="content.category"
                 :category="content.category"
-                class="mt-[8px]"
+                class="mt-[6px]"
               />
             </div>
           </li>

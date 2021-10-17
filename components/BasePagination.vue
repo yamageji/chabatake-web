@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="border-t-[1px] border-warmGray-400 wrapper">
     <ul class="pager">
       <li v-if="current > 1" class="page arrow">
         <nuxt-link :to="getPath(current - 1)">
@@ -59,12 +59,58 @@ export default defineComponent({
   },
 
   setup(props) {
-    const getPath = (p) =>
-      `/${
-        props.category !== undefined ? `category/${props.category.id}/` : ''
-      }page/${p}`;
+    const getPath = (p) => {
+      if (props.category) {
+        return `/category/${props.category.id}/page/${p}`;
+      } else {
+        return `/page/${p}`;
+      }
+    };
 
     return { getPath };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.wrapper {
+  padding: 16px 0;
+}
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0 0;
+}
+.omission {
+  color: gray;
+  margin: 4px 12px;
+}
+.page {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin: 4px;
+  &.arrow {
+    margin: 4px 12px;
+  }
+  &.active {
+    background-color: #10b981;
+    a,
+    a:hover {
+      color: #fff;
+    }
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--color-text-sub);
+    &:hover {
+      color: #10b981;
+    }
+  }
+}
+</style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="h-screen">
+  <div class="h-full bg-warmGray-100">
     <div
       class="
-        grid grid-cols-8 grid-rows-layout
-        max-w-5xl
-        min-h-[100%]
+        grid grid-cols-layout grid-rows-layout
+        max-w-screen-lg
+        min-h-screen
         mx-auto
         px-[16px]
         pt-[16px]

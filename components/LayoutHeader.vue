@@ -1,57 +1,33 @@
 <template>
-  <header class="col-span-8">
-    <div class="h-[320px] pt-[16px] px-[16px] md:px-[24px] bg-green-100">
+  <header class="grid col-span-2 grid-cols-layout">
+    <div
+      class="
+        col-span-2
+        h-[320px]
+        pt-[16px]
+        px-[16px]
+        md:px-[24px]
+        rounded-[8px]
+        bg-hero-pattern
+      "
+    >
       <h1 class="font-bold text-[24px] text-warmGray-700">
-        <a href="/page/1"> 茶畑WEB </a>
+        <a href="/page/1"> chabatake WEB </a>
       </h1>
     </div>
-    <nav class="mt-[36px] my-[12px]">
-      <ul class="flex gap-[28px] text-warmGray-800">
+    <nav class="col-span-2 md:col-span-1 mt-[36px] mb-[24px] ml-[16px]">
+      <ul class="flex gap-[32px] text-warmGray-800">
         <li
+          v-for="item in navigationData"
+          :key="item.name"
           class="
             h-[28px]
             box-border
             hover:border-b-[2px] hover:border-b-warmGray-400
           "
         >
-          <a href="/category/new/page/1">
-            <div class="font-bold text-[18px]">New</div>
-          </a>
-        </li>
-
-        <li
-          class="
-            h-[28px]
-            box-border
-            hover:border-b-[2px] hover:border-b-warmGray-400
-          "
-        >
-          <a href="/category/dev/page/1">
-            <div class="font-bold text-[18px]">Dev</div>
-          </a>
-        </li>
-
-        <li
-          class="
-            h-[28px]
-            box-border
-            hover:border-b-[2px] hover:border-b-warmGray-400
-          "
-        >
-          <a href="/category/design/page/1">
-            <div class="font-bold text-[18px]">Design</div>
-          </a>
-        </li>
-
-        <li
-          class="
-            h-[28px]
-            box-border
-            hover:border-b-[2px] hover:border-b-warmGray-400
-          "
-        >
-          <a href="/category/hobby/page/1">
-            <div class="font-bold text-[18px]">Hobby</div>
+          <a :href="item.href">
+            <div class="font-bold text-[18px]">{{ item.name }}</div>
           </a>
         </li>
       </ul>
@@ -64,5 +40,29 @@ import { defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   name: 'LayoutHeader',
+  setup() {
+    const navigationData = [
+      {
+        name: 'New',
+        href: '/category/new/page/1',
+      },
+      {
+        name: 'Dev',
+        href: '/category/dev/page/1',
+      },
+      {
+        name: 'Design',
+        href: '/category/design/page/1',
+      },
+      {
+        name: 'Hobby',
+        href: '/category/hobby/page/1',
+      },
+    ];
+
+    return {
+      navigationData,
+    };
+  },
 });
 </script>

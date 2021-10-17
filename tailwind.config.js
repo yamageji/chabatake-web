@@ -19,6 +19,13 @@ module.exports = {
         // base layout
         layout: 'auto 1fr auto',
       },
+      gridTemplateColumns: {
+        // base layout
+        layout: '1fr auto',
+      },
+      backgroundImage: {
+        'hero-pattern': "url('@/assets/image/chabatake.png')",
+      },
     },
   },
   variants: {
