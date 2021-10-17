@@ -1,7 +1,7 @@
 <template>
   <footer
     class="
-      col-span-8
+      col-span-2
       h-[60px]
       mt-[24px]
       border-t-[1px] border-warmGray-400

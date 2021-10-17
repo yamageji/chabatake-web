@@ -1,6 +1,6 @@
-const solid = ['faPencilRuler', 'faLaptopCode', 'faGhost'];
+const solid = ['faChevronLeft', 'faChevronRight'];
 
-const regular = ['faNewspaper'];
+const regular = ['faClock'];
 
 const brands = ['faTwitter', 'faGithub'];
 

@@ -1,9 +1,9 @@
 <template>
-  <div class="col-span-8 md:col-span-5 mt-[16px]">
+  <div class="col-span-2 md:col-span-1 mt-[16px]">
     <ul
       v-for="content in data"
       :key="content.id"
-      class="border-b-[1px] border-warmGray-400"
+      class="border-t-[1px] border-warmGray-400"
     >
       <nuxt-link :to="`/${content.id}`">
         <div class="py-[8px]">
@@ -15,6 +15,9 @@
               p-[8px]
               hover:bg-warmGray-200
               rounded-[4px]
+              transition-bg
+              duration-200
+              ease-in-out
             "
           >
             <div
@@ -24,43 +27,100 @@
                 justify-center
                 h-[80px]
                 w-[80px]
-                bg-gray-300
+                bg-warmGray-300
                 rounded-[8px]
+                text-[30px]
               "
-            >
-              test
-            </div>
+            ></div>
             <div>
-              <h1 class="text-[16px] font-bold">
+              <h1 class="text-[18px] font-bold">
                 {{ content.title }}
               </h1>
-              <time class="text-[14px]">{{ content.date | formatDate }}</time>
+
+              <time class="text-[13px] font-semibold text-warmGray-700"
+                ><font-awesome-icon :icon="['far', 'clock']" />
+                {{ content.date | formatDate }}</time
+              >
               <CategoryLabel
                 v-if="content.category"
                 :category="content.category"
-                class="mt-[8px]"
+                class="mt-[6px]"
               />
             </div>
           </li>
         </div>
       </nuxt-link>
     </ul>
+
+    <!-- ページェネレーション -->
+    <div>
+      <BasePagination
+        :pager="pager"
+        :current="Number(page)"
+        :category="selectedCategory"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api';
+import {
+  defineComponent,
+  ref,
+  useFetch,
+  useContext,
+  computed,
+} from '@nuxtjs/composition-api';
 
 export default defineComponent({
   setup() {
     const data = ref('');
+    const selectedCategory = ref('');
+    const pager = ref('');
 
+    const { route } = useContext();
+    const page = route.value.params.p || '1';
+    const categoryId = route.value.params.categoryId;
+    const limit = 5;
+    const articleFilter =
+      categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
-      const result = await $microcms.get({ endpoint: 'blog' });
+      const result = await $microcms.get({
+        endpoint: 'blog',
+        queries: {
+          limit,
+          offset: (page - 1) * limit,
+          filters: articleFilter,
+        },
+      });
       data.value = result.contents;
+      pager.value = computed(() => [
+        ...Array(Math.ceil(result.totalCount / limit)).keys(),
+      ]).value;
+
+      const categories = await $microcms.get({
+        endpoint: 'categories',
+        queries: {
+          fields: 'id',
+        },
+      });
+
+      const myCategory =
+        categoryId !== undefined
+          ? categories.contents.find((content) => content.id === categoryId)
+          : undefined;
+
+      selectedCategory.value = myCategory;
     });
 
-    return { data };
+    return {
+      data,
+      selectedCategory,
+      page,
+      pager,
+    };
   },
 });
 </script>

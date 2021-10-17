@@ -1,12 +1,13 @@
 <template>
   <div
     class="
-      col-span-8
+      col-span-2
+      md:w-[260px]
       mt-[40px]
-      md:pt-[24px] md:pl-[24px] md:col-span-3 md:h-full md:mt-[0px]
+      md:pt-[24px] md:pl-[24px] md:col-span-1 md:h-full md:mt-[0px]
     "
   >
-    <div class="p-[24px] md:px-[20px] md:py-[14px]">
+    <div class="p-[24px] md:px-[12px] md:py-[0px]">
       <div class="flex gap-[8px] items-center">
         <img
           src="~/assets/image/shigehito_logo_100.svg"
@@ -33,6 +34,9 @@
             text-warmGray-800
             opacity-50
             hover:opacity-100
+            transition-opacity
+            duration-200
+            ease-in-out
           "
         >
           <BaseIconLinkButton
