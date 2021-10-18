@@ -20,10 +20,13 @@
         <li
           v-for="item in navigationData"
           :key="item.name"
+          :class="[
+            item.name === categoryId ? 'border-b-[2px] border-b-green-400' : '',
+          ]"
           class="
             h-[28px]
             box-border
-            hover:border-b-[2px] hover:border-b-warmGray-400
+            hover:border-b-[2px] hover:border-b-green-400
           "
         >
           <a :href="item.href">
@@ -36,31 +39,36 @@
 </template>
 
 <script lnag="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
+import { defineComponent, useContext } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   name: 'LayoutHeader',
+
   setup() {
+    const { route } = useContext();
+    const categoryId = route.value.params.categoryId;
+
     const navigationData = [
       {
-        name: 'New',
+        name: 'new',
         href: '/category/new/page/1',
       },
       {
-        name: 'Dev',
+        name: 'dev',
         href: '/category/dev/page/1',
       },
       {
-        name: 'Design',
+        name: 'design',
         href: '/category/design/page/1',
       },
       {
-        name: 'Hobby',
+        name: 'hobby',
         href: '/category/hobby/page/1',
       },
     ];
 
     return {
+      categoryId,
       navigationData,
     };
   },

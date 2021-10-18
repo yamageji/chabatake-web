@@ -52,7 +52,7 @@
       </nuxt-link>
     </ul>
 
-    <!-- ページェネレーション -->
+    <!-- ページネーション -->
     <div>
       <BasePagination
         :pager="pager"
