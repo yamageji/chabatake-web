@@ -11,26 +11,35 @@
         bg-hero-pattern
       "
     >
-      <h1 class="font-bold text-[24px] text-warmGray-700">
+      <h1 class="font-bold text-[24px] text-warmGray-800">
         <a href="/page/1"> chabatake WEB </a>
       </h1>
     </div>
-    <nav class="col-span-2 md:col-span-1 mt-[36px] mb-[24px] ml-[16px]">
-      <ul class="flex gap-[32px] text-warmGray-800">
+    <nav class="col-span-2 mt-[36px] mb-[24px] ml-[16px]">
+      <ul class="flex gap-[24px] md:gap-[32px] text-warmGray-500">
         <li
           v-for="item in navigationData"
           :key="item.name"
           :class="[
-            item.name === categoryId ? 'border-b-[2px] border-b-green-400' : '',
+            item.name.toLowerCase() === categoryId
+              ? 'text-warmGray-800 border-b-[1px] border-b-warmGray-400'
+              : '',
           ]"
           class="
-            h-[28px]
             box-border
-            hover:border-b-[2px] hover:border-b-green-400
+            h-[30px]
+            hover:border-b-[1px]
+            hover:border-b-warmGray-400
+            hover:text-warmGray-800
+            transition-border
+            duration-300
+            ease-in-out
           "
         >
           <a :href="item.href">
-            <div class="font-bold text-[18px]">{{ item.name }}</div>
+            <div class="font-bold text-[18px] md:text-[20px]">
+              {{ item.name }}
+            </div>
           </a>
         </li>
       </ul>
@@ -50,19 +59,19 @@ export default defineComponent({
 
     const navigationData = [
       {
-        name: 'new',
+        name: 'New',
         href: '/category/new/page/1',
       },
       {
-        name: 'dev',
+        name: 'Dev',
         href: '/category/dev/page/1',
       },
       {
-        name: 'design',
+        name: 'Design',
         href: '/category/design/page/1',
       },
       {
-        name: 'hobby',
+        name: 'Hobby',
         href: '/category/hobby/page/1',
       },
     ];

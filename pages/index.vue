@@ -6,7 +6,7 @@
       class="border-t-[1px] border-warmGray-400"
     >
       <nuxt-link :to="`/${content.id}`">
-        <div class="py-[8px]">
+        <div class="py-[8px] md:py-[10px]">
           <li
             class="
               flex
@@ -18,6 +18,7 @@
               transition-bg
               duration-200
               ease-in-out
+              md:gap-[14px] md:p-[10px]
             "
           >
             <div
@@ -29,22 +30,32 @@
                 w-[80px]
                 bg-warmGray-300
                 rounded-[8px]
-                text-[30px]
+                md:h-[100px] md:w-[100px]
               "
             ></div>
             <div>
-              <h1 class="text-[18px] font-bold">
+              <h1
+                class="text-[18px] font-bold text-warmGray-700 md:text-[22px]"
+              >
                 {{ content.title }}
               </h1>
-
-              <time class="text-[13px] font-semibold text-warmGray-700"
-                ><font-awesome-icon :icon="['far', 'clock']" />
-                {{ content.date | formatDate }}</time
+              <div
+                class="
+                  text-[13px]
+                  font-semibold
+                  text-warmGray-700
+                  md:text-[15px] md:mt-[2px]
+                "
               >
+                <time
+                  ><font-awesome-icon :icon="['far', 'clock']" />
+                  {{ content.date | formatDate }}</time
+                >
+              </div>
               <CategoryLabel
                 v-if="content.category"
                 :category="content.category"
-                class="mt-[6px]"
+                class="mt-[6px] md:mt-[10px]"
               />
             </div>
           </li>
