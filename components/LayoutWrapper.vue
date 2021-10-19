@@ -8,6 +8,7 @@
         mx-auto
         px-[16px]
         pt-[16px]
+        md:px-[24px] md:pt-[24px]
         bg-warmGray-100
       "
     >

@@ -2,12 +2,11 @@
   <div
     class="
       col-span-2
-      md:w-[260px]
       mt-[40px]
-      md:pt-[24px] md:pl-[24px] md:col-span-1 md:h-full md:mt-[0px]
+      md:w-[260px] md:pt-[40px] md:pl-[32px] md:col-span-1 md:h-full md:mt-[0px]
     "
   >
-    <div class="p-[24px] md:px-[12px] md:py-[0px]">
+    <div class="p-[12px] md:px-[0px] md:py-[0px]">
       <div class="flex gap-[8px] items-center">
         <img
           src="~/assets/image/shigehito_logo_100.svg"
@@ -16,7 +15,7 @@
           height="48px"
           class="rounded-full"
         />
-        <h3 class="font-bold text-[20px] text-warmGray-800 md:text-[18px]">
+        <h3 class="font-bold text-[20px] text-warmGray-800 md:text-[20px]">
           koyama shigehito
         </h3>
       </div>
