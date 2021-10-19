@@ -84,7 +84,7 @@ export default defineComponent({
   padding: 40px 0 0;
 }
 .omission {
-  color: gray;
+  color: #44403c;
   margin: 4px 12px;
 }
 .page {
@@ -96,7 +96,7 @@ export default defineComponent({
     margin: 4px 12px;
   }
   &.active {
-    background-color: #10b981;
+    background-color: #44403c;
     a,
     a:hover {
       color: #fff;
@@ -109,7 +109,7 @@ export default defineComponent({
     height: 100%;
     color: var(--color-text-sub);
     &:hover {
-      color: #10b981;
+      color: #44403c;
     }
   }
 }

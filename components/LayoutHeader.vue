@@ -6,7 +6,6 @@
         h-[320px]
         pt-[16px]
         px-[16px]
-        md:px-[24px]
         rounded-[8px]
         bg-hero-pattern
       "
@@ -15,25 +14,38 @@
         <a href="/page/1"> chabatake WEB </a>
       </h1>
     </div>
-    <nav class="col-span-2 mt-[36px] mb-[24px] ml-[16px]">
-      <ul class="flex gap-[24px] md:gap-[32px] text-warmGray-500">
+    <nav
+      class="
+        col-span-2
+        mt-[30px]
+        mb-[18px]
+        ml-[10px]
+        md:mt-[36px] md:mb-[24px] md:ml-[14px]
+      "
+    >
+      <ul class="flex gap-[20px] md:gap-[30px] text-warmGray-500">
         <li
           v-for="item in navigationData"
           :key="item.name"
           :class="[
             item.name.toLowerCase() === categoryId
-              ? 'text-warmGray-800 border-b-[1px] border-b-warmGray-400'
+              ? 'text-warmGray-800 border-b-[1.5px] border-b-warmGray-500'
+              : '',
+            categoryId === undefined && item.name.toLowerCase() === 'new'
+              ? 'text-warmGray-800 border-b-[1.5px] border-b-warmGray-500'
               : '',
           ]"
           class="
             box-border
             h-[30px]
-            hover:border-b-[1px]
-            hover:border-b-warmGray-400
+            px-[4px]
+            hover:border-b-[1.5px]
+            hover:border-b-warmGray-500
             hover:text-warmGray-800
             transition-border
             duration-300
             ease-in-out
+            md:h-[34px]
           "
         >
           <a :href="item.href">
@@ -60,7 +72,7 @@ export default defineComponent({
     const navigationData = [
       {
         name: 'New',
-        href: '/category/new/page/1',
+        href: '/page/1',
       },
       {
         name: 'Dev',
@@ -71,8 +83,8 @@ export default defineComponent({
         href: '/category/design/page/1',
       },
       {
-        name: 'Hobby',
-        href: '/category/hobby/page/1',
+        name: 'Self',
+        href: '/category/self/page/1',
       },
     ];
 

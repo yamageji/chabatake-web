@@ -6,13 +6,13 @@
       class="border-t-[1px] border-warmGray-400"
     >
       <nuxt-link :to="`/${content.id}`">
-        <div class="py-[8px] md:py-[10px]">
+        <div class="py-[6px] md:py-[8px]">
           <li
             class="
               flex
               items-center
               gap-[12px]
-              p-[8px]
+              p-[6px]
               hover:bg-warmGray-200
               rounded-[4px]
               transition-bg

@@ -37,7 +37,7 @@ export default defineComponent({
         return 'bg-green-400 text-green-100';
       } else if (props.category.name === 'design') {
         return 'bg-blue-400 text-blue-100';
-      } else if (props.category.name === 'hobby') {
+      } else if (props.category.name === 'self') {
         return 'bg-purple-400 text-purple-100';
       }
     });
