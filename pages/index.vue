@@ -28,11 +28,16 @@
                 justify-center
                 h-[80px]
                 w-[80px]
-                bg-warmGray-300
+                md:
+                bg-warmGray-200
                 rounded-[8px]
                 md:h-[100px] md:w-[100px]
               "
-            ></div>
+            >
+              <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
+                <img :src="content.pictogram.url" width="100%" hight="100%" />
+              </picture>
+            </div>
             <div>
               <h1
                 class="text-[18px] font-bold text-warmGray-700 md:text-[22px]"

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-warmGray-100">
+  <div class="h-full bg-warmGray-50">
     <div
       class="
         grid grid-cols-layout grid-rows-layout
@@ -9,7 +9,7 @@
         px-[16px]
         pt-[16px]
         md:px-[24px] md:pt-[24px]
-        bg-warmGray-100
+        bg-warmGray-50
       "
     >
       <slot />

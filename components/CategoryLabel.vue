@@ -32,13 +32,13 @@ export default defineComponent({
   setup(props) {
     const labelColor = computed(() => {
       if (props.category.name === 'new') {
-        return 'bg-red-400 text-red-100';
+        return 'bg-green-500 text-green-100';
       } else if (props.category.name === 'dev') {
-        return 'bg-green-400 text-green-100';
+        return 'bg-green-500 text-green-100';
       } else if (props.category.name === 'design') {
-        return 'bg-blue-400 text-blue-100';
+        return 'bg-green-500 text-green-100';
       } else if (props.category.name === 'self') {
-        return 'bg-purple-400 text-purple-100';
+        return 'bg-green-500 text-green-100';
       }
     });
 

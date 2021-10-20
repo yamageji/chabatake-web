@@ -17,30 +17,18 @@
     <nav
       class="
         col-span-2
-        mt-[30px]
-        mb-[18px]
-        ml-[10px]
-        md:mt-[36px] md:mb-[24px] md:ml-[14px]
+        mt-[36px]
+        mb-[12px]
+        ml-[8px]
+        md:mt-[44px] md:mb-[16px] md:ml-[12px]
       "
     >
-      <ul class="flex gap-[20px] md:gap-[30px] text-warmGray-500">
+      <ul class="flex gap-[22px] md:gap-[28px] text-warmGray-400">
         <li
           v-for="item in navigationData"
           :key="item.name"
-          :class="[
-            item.name.toLowerCase() === categoryId
-              ? 'text-warmGray-800 border-b-[1.5px] border-b-warmGray-500'
-              : '',
-            categoryId === undefined && item.name.toLowerCase() === 'new'
-              ? 'text-warmGray-800 border-b-[1.5px] border-b-warmGray-500'
-              : '',
-          ]"
           class="
             box-border
-            h-[30px]
-            px-[4px]
-            hover:border-b-[1.5px]
-            hover:border-b-warmGray-500
             hover:text-warmGray-800
             transition-border
             duration-300
@@ -49,7 +37,27 @@
           "
         >
           <a :href="item.href">
-            <div class="font-bold text-[18px] md:text-[20px]">
+            <div
+              :class="[
+                item.name.toLowerCase() === categoryId
+                  ? 'text-warmGray-800 before:bg-green-500'
+                  : '',
+                categoryId === undefined && item.name.toLowerCase() === 'new'
+                  ? 'text-warmGray-800 before:bg-green-500'
+                  : '',
+              ]"
+              class="
+                font-bold
+                text-[18px]
+                before:inline-block
+                before:h-[12px]
+                before:w-[12px]
+                before:rounded-[2px]
+                before:mr-[1px]
+                before:bg-warmGray-300
+                md:text-[20px]
+              "
+            >
               {{ item.name }}
             </div>
           </a>

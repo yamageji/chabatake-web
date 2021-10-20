@@ -74,7 +74,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .wrapper {
-  padding: 16px 0;
+  padding-top: 16px;
 }
 .pager {
   display: flex;
@@ -88,18 +88,19 @@ export default defineComponent({
   margin: 4px 12px;
 }
 .page {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
   margin: 4px;
+
   &.arrow {
-    margin: 4px 12px;
+    margin: 4px 8px;
   }
   &.active {
     background-color: #44403c;
     a,
     a:hover {
-      color: #fff;
+      color: white;
     }
   }
   a {
@@ -107,9 +108,9 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: var(--color-text-sub);
+    color: #44403c;
     &:hover {
-      color: #44403c;
+      color: #a8a29e;
     }
   }
 }
