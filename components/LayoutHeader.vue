@@ -1,26 +1,18 @@
 <template>
   <header class="grid col-span-2 grid-cols-layout">
-    <div
-      class="
-        col-span-2
-        h-[320px]
-        pt-[16px]
-        px-[16px]
-        rounded-[8px]
-        bg-hero-pattern
-      "
-    >
-      <h1 class="font-bold text-[24px] text-warmGray-800">
-        <a href="/page/1"> chabatake WEB </a>
-      </h1>
-    </div>
+    <h1 class="w-[220px] ml-[4px] md:w-[260px] mb-[24px]">
+      <a href="/page/1">
+        <img src="@/assets/image/chabatake-web_rogo.svg" alt="chabatake WEB" />
+      </a>
+    </h1>
+
     <nav
       class="
         col-span-2
-        mt-[36px]
+        mt-[28px]
         mb-[12px]
         ml-[8px]
-        md:mt-[44px] md:mb-[16px] md:ml-[12px]
+        md:mt-[36px] md:mb-[16px] md:ml-[12px]
       "
     >
       <ul class="flex gap-[22px] md:gap-[28px] text-warmGray-400">
@@ -38,14 +30,6 @@
         >
           <a :href="item.href">
             <div
-              :class="[
-                item.name.toLowerCase() === categoryId
-                  ? 'text-warmGray-800 before:bg-green-500'
-                  : '',
-                categoryId === undefined && item.name.toLowerCase() === 'new'
-                  ? 'text-warmGray-800 before:bg-green-500'
-                  : '',
-              ]"
               class="
                 font-bold
                 text-[18px]
@@ -57,6 +41,14 @@
                 before:bg-warmGray-300
                 md:text-[20px]
               "
+              :class="[
+                item.name.toLowerCase() === categoryId
+                  ? 'text-warmGray-800 before:bg-emerald-400'
+                  : '',
+                categoryId === undefined && item.name.toLowerCase() === 'new'
+                  ? 'text-warmGray-800 before:bg-emerald-400'
+                  : '',
+              ]"
             >
               {{ item.name }}
             </div>

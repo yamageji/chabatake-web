@@ -2,7 +2,7 @@
   <main class="col-span-2 md:col-span-1 mt-[16px]">
     <h1 class="mb-[20px]">{{ title }}</h1>
     <p class="mb-[40px]">{{ date | formatDate }}</p>
-    <div class="post" v-html="body"></div>
+    <div class="post w-[600px]" v-html="body"></div>
   </main>
 </template>
 

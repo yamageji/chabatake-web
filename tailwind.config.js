@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       colors: {
         warmGray: colors.warmGray,
+        emerald: colors.emerald,
       },
       gridTemplateRows: {
         // base layout
