@@ -1,10 +1,28 @@
 <template>
   <header class="grid col-span-2 grid-cols-layout">
-    <h1 class="w-[220px] ml-[4px] md:w-[260px] mb-[24px]">
-      <a href="/page/1">
-        <img src="@/assets/image/chabatake-web_rogo.svg" alt="chabatake WEB" />
-      </a>
-    </h1>
+    <div class="grid col-span-2">
+      <h1 class="w-[200px] ml-[4px] mb-[16px] md:w-[240px] md:mb-[24px]">
+        <a href="/page/1">
+          <img
+            src="@/assets/image/chabatake-web_rogo.svg"
+            alt="chabatake WEB"
+          />
+        </a>
+      </h1>
+    </div>
+    <div
+      class="
+        w-full
+        bg-hero-pattern bg-cover bg-center
+        border-[1px] border-warmGray-500
+        h-[160px]
+        sm:h-[200px]
+        md:h-[280px]
+        rounded-[4px]
+        sm:rounded-[8px]
+        md:rounded-[12px]
+      "
+    ></div>
 
     <nav
       class="
@@ -15,7 +33,7 @@
         md:mt-[36px] md:mb-[16px] md:ml-[12px]
       "
     >
-      <ul class="flex gap-[22px] md:gap-[28px] text-warmGray-400">
+      <ul class="flex gap-[20px] md:gap-[28px] text-warmGray-400">
         <li
           v-for="item in navigationData"
           :key="item.name"
@@ -32,13 +50,13 @@
             <div
               class="
                 font-bold
-                text-[18px]
+                text-[16px]
                 before:inline-block
                 before:h-[12px]
                 before:w-[12px]
                 before:rounded-[2px]
-                before:mr-[1px]
-                before:bg-warmGray-300
+                md:before:mr-[1px]
+                before:mr-[0.5px] before:bg-warmGray-300
                 md:text-[20px]
               "
               :class="[

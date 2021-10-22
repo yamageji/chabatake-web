@@ -19,7 +19,9 @@
           koyama shigehito
         </h3>
       </div>
-      <p class="mt-[12px] text-[14px]"></p>
+      <p class="mt-[12px] text-[14px]">
+        <!-- ここにプロフィール -->
+      </p>
       <ul class="flex gap-[8px] mt-[16px]">
         <li
           v-for="item in snsLink"

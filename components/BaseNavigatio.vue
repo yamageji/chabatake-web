@@ -11,7 +11,9 @@
         "
       >
         <a :href="item.href">
-          <div class="font-bold text-[18px]">{{ item.name }}</div>
+          <div class="font-bold text-[14px] md:text-[18px]">
+            {{ item.name }}
+          </div>
         </a>
       </li>
     </ul>
