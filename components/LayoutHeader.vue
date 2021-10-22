@@ -1,7 +1,17 @@
 <template>
   <header class="grid col-span-2 grid-cols-layout">
-    <div class="grid col-span-2">
-      <h1 class="w-[200px] ml-[4px] mb-[16px] md:w-[240px] md:mb-[24px]">
+    <div
+      class="
+        flex
+        items-center
+        justify-between
+        col-span-2
+        h-[32px]
+        mb-[14px]
+        md:h-[40px] md:mb-[18px]
+      "
+    >
+      <h1 class="w-[200px] md:w-[240px]">
         <a href="/page/1">
           <img
             src="@/assets/image/chabatake-web_rogo.svg"
@@ -9,6 +19,9 @@
           />
         </a>
       </h1>
+      <div>
+        <div class="w-[48px] h-[24px] bg-gray-600 rounded-[12px]"></div>
+      </div>
     </div>
     <div
       class="

@@ -3,7 +3,7 @@
     class="
       col-span-2
       mt-[40px]
-      md:w-[260px] md:pt-[40px] md:pl-[32px] md:col-span-1 md:h-full md:mt-[0px]
+      md:w-[260px] md:pt-[16px] md:pl-[32px] md:col-span-1 md:h-full md:mt-[0px]
     "
   >
     <div class="p-[12px] md:px-[0px] md:py-[0px]">
@@ -26,9 +26,8 @@
           koyama shigehito
         </h3>
       </div>
-      <p class="mt-[12px] px-[8px] text-[14px] leading-relaxed font-noto">
-        DTP制作の仕事をしています。<br />
-        UIデザイン / WEBフロントエンド周りの技術を中心に学習中です。
+      <p class="mt-[12px] md:px-[8px] text-[14px] leading-relaxed font-noto">
+        UIデザイン / WEBフロントエンド周りの技術を中心に学習中です。<br />
       </p>
       <ul class="flex gap-[8px] mt-[16px]">
         <li
