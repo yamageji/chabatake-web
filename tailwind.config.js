@@ -12,6 +12,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        noto: ['Noto Sans JP', 'sans-serif'],
+        source: ['Source Sans Pro', 'sans-serif'],
+      },
       colors: {
         warmGray: colors.warmGray,
         emerald: colors.emerald,

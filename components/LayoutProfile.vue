@@ -15,12 +15,20 @@
           height="48px"
           class="rounded-full"
         />
-        <h3 class="font-bold text-[20px] text-warmGray-800 md:text-[20px]">
+        <h3
+          class="
+            font-source font-semibold
+            tracking-wider
+            text-[20px] text-warmGray-800
+            md:text-[20px]
+          "
+        >
           koyama shigehito
         </h3>
       </div>
-      <p class="mt-[12px] text-[14px]">
-        <!-- ここにプロフィール -->
+      <p class="mt-[12px] px-[8px] text-[14px] leading-relaxed font-noto">
+        DTP制作の仕事をしています。<br />
+        UIデザイン / WEBフロントエンド周りの技術を中心に学習中です。
       </p>
       <ul class="flex gap-[8px] mt-[16px]">
         <li
