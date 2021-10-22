@@ -52,7 +52,15 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-webfontloader',
   ],
+
+  // google font
+  webfontloader: {
+    google: {
+      families: ['Noto+Sans+JP:400,700', 'Source+Sans+Pro:400;600'],
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

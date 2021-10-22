@@ -49,8 +49,9 @@
           <a :href="item.href">
             <div
               class="
-                font-bold
+                font-source font-semibold
                 text-[16px]
+                tracking-wider
                 before:inline-block
                 before:h-[12px]
                 before:w-[12px]

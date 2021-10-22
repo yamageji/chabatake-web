@@ -7,8 +7,9 @@
         px-[6px]
         py-[3px]
         rounded-[2px]
+        font-source
         text-[12px]
-        font-bold
+        tracking-wide
         opacity-90
         md:text-[14px]
       "

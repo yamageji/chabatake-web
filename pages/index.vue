@@ -40,14 +40,19 @@
             </div>
             <div>
               <h1
-                class="text-[18px] font-bold text-warmGray-700 md:text-[22px]"
+                class="
+                  text-[18px]
+                  font-noto font-bold
+                  text-warmGray-700
+                  md:text-[22px]
+                "
               >
                 {{ content.title }}
               </h1>
               <div
                 class="
                   text-[13px]
-                  font-semibold
+                  font-noto
                   text-warmGray-700
                   md:text-[15px] md:mt-[2px]
                 "
