@@ -21,12 +21,23 @@
             tracking-wider
             text-[20px] text-warmGray-800
             md:text-[20px]
+            dark:text-warmGray-200
           "
         >
           koyama shigehito
         </h3>
       </div>
-      <p class="mt-[12px] md:px-[8px] text-[14px] leading-relaxed font-noto">
+      <p
+        class="
+          mt-[12px]
+          md:px-[8px]
+          text-[14px]
+          leading-relaxed
+          font-noto
+          text-warmGray-800
+          dark:text-warmGray-200
+        "
+      >
         UIデザイン / WEBフロントエンド周りの技術を中心に学習中です。<br />
       </p>
       <ul class="flex gap-[8px] mt-[16px]">
@@ -45,6 +56,8 @@
             transition-opacity
             duration-200
             ease-in-out
+            fill-current
+            dark:text-warmGray-100
           "
         >
           <BaseIconLinkButton
@@ -79,8 +92,8 @@ export default defineComponent({
       {
         name: 'zenn',
         url: 'https://zenn.dev/chabatake_i',
-        iconType: 'img',
-        src: require('@/assets/image/zenn-logo_warm-gray-800.svg'),
+        iconType: 'svg',
+        src: require('@/assets/image/zenn-logo.svg'),
         alt: 'zenn rogo',
         fontAwsomeIcon: [],
       },

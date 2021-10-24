@@ -3,7 +3,7 @@
     <ul
       v-for="content in data"
       :key="content.id"
-      class="border-t-[1px] border-warmGray-400"
+      class="border-t-[1px] border-warmGray-400 dark:border-warmGray-600"
     >
       <nuxt-link :to="`/${content.id}`">
         <div class="py-[6px] md:py-[8px]">
@@ -19,6 +19,7 @@
               duration-200
               ease-in-out
               md:gap-[14px] md:p-[10px]
+              dark:hover:bg-warmGray-700
             "
           >
             <div
@@ -32,6 +33,7 @@
                 bg-warmGray-200
                 rounded-[8px]
                 md:h-[100px] md:w-[100px]
+                dark:bg-warmGray-300
               "
             >
               <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
@@ -45,6 +47,7 @@
                   font-noto font-bold
                   text-warmGray-700
                   md:text-[22px]
+                  dark:text-warmGray-200
                 "
               >
                 {{ content.title }}
@@ -55,6 +58,7 @@
                   font-noto
                   text-warmGray-700
                   md:text-[15px] md:mt-[2px]
+                  dark:text-warmGray-200
                 "
               >
                 <time
