@@ -1,12 +1,7 @@
 <template>
   <a :disabled="disabled" :href="url" target="_blank" rel="noopener">
-    <img
-      v-if="iconType === 'img'"
-      :src="src"
-      :alt="alt"
-      width="22px"
-      height="22px"
-    />
+    <BaseIcon v-if="iconType === 'svg'"><IconZenn /></BaseIcon>
+
     <font-awesome-icon
       v-else-if="iconType === 'fontAwesone'"
       :icon="fontAwsomeIcon"
@@ -17,9 +12,14 @@
 
 <script lnag="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
+import IconZenn from './icons/IconZenn.vue';
 
 export default defineComponent({
   name: 'BaseIconLinkButton',
+  components: {
+    IconZenn,
+  },
+
   props: {
     disabled: {
       type: Boolean,
@@ -31,7 +31,7 @@ export default defineComponent({
     },
     iconType: {
       type: String,
-      default: 'img',
+      default: 'svg',
     },
     src: {
       type: String,

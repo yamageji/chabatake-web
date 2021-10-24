@@ -6,9 +6,17 @@
       mt-[24px]
       border-t-[1px] border-warmGray-400
       py-[16px]
+      dark:border-warmGray-600
     "
   >
-    <p class="text-center text-[14px] leading-relaxed whitespace-nowrap">
+    <p
+      class="
+        text-center text-[14px] text-warmGray-800
+        leading-relaxed
+        whitespace-nowrap
+        dark:text-warmGray-200
+      "
+    >
       Copyright © 2021 koyama shigehito
     </p>
   </footer>

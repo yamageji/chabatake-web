@@ -7,21 +7,32 @@
         justify-between
         col-span-2
         h-[32px]
-        mb-[14px]
-        md:h-[40px] md:mb-[18px]
+        mb-[16px]
+        md:h-[40px] md:mb-[20px]
       "
     >
-      <h1 class="w-[200px] md:w-[240px]">
+      <h1>
         <a href="/page/1">
-          <img
-            src="@/assets/image/chabatake-web_rogo.svg"
-            alt="chabatake WEB"
-          />
+          <svg
+            class="
+              w-[200px]
+              md:w-[240px]
+              fill-current
+              text-warmGray-800
+              transition-text
+              duration-200
+              ease-in-out
+              hover:text-warmGray-600
+              dark:text-warmGray-200 dark:hover:text-warmGray-400
+            "
+          >
+            <use
+              xlink:href="@/assets/image/chabatake-web_rogo.svg#chabatake-web_rogo"
+            ></use>
+          </svg>
         </a>
       </h1>
-      <div>
-        <div class="w-[48px] h-[24px] bg-gray-600 rounded-[12px]"></div>
-      </div>
+      <BaseDarkmodeButton />
     </div>
     <div
       class="
@@ -46,17 +57,26 @@
         md:mt-[36px] md:mb-[16px] md:ml-[12px]
       "
     >
-      <ul class="flex gap-[20px] md:gap-[28px] text-warmGray-400">
+      <ul
+        class="
+          flex
+          gap-[20px]
+          md:gap-[28px]
+          text-warmGray-400
+          dark:text-warmGray-600
+        "
+      >
         <li
           v-for="item in navigationData"
           :key="item.name"
           class="
             box-border
-            hover:text-warmGray-800
-            transition-border
-            duration-300
+            hover:text-warmGray-600
+            transition-text
+            duration-200
             ease-in-out
             md:h-[34px]
+            dark:hover:text-warmGray-400
           "
         >
           <a :href="item.href">
@@ -69,16 +89,17 @@
                 before:h-[12px]
                 before:w-[12px]
                 before:rounded-[2px]
-                md:before:mr-[1px]
-                before:mr-[0.5px] before:bg-warmGray-300
-                md:text-[20px]
+                before:mr-[0.5px]
+                before:bg-warmGray-300
+                dark:before:bg-warmGray-500
+                md:before:mr-[1px] md:text-[20px]
               "
               :class="[
                 item.name.toLowerCase() === categoryId
-                  ? 'text-warmGray-800 before:bg-emerald-400'
+                  ? 'text-warmGray-800 dark:text-warmGray-200 before:bg-emerald-400 dark:before:bg-emerald-400 '
                   : '',
                 categoryId === undefined && item.name.toLowerCase() === 'new'
-                  ? 'text-warmGray-800 before:bg-emerald-400'
+                  ? 'text-warmGray-800 dark:text-warmGray-200 before:bg-emerald-400 dark:before:bg-emerald-400'
                   : '',
               ]"
             >
