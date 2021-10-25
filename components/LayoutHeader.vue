@@ -32,7 +32,8 @@
           </svg>
         </a>
       </h1>
-      <BaseDarkmodeButton />
+      <!-- ダークモードボタンを後で実装 -->
+      <!-- <BaseDarkmodeButton /> -->
     </div>
     <div
       class="
