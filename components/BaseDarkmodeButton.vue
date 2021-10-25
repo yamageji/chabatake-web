@@ -22,19 +22,16 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api';
-// import { useMediaQuery } from '@vueuse/core';
 
 export default defineComponent({
   setup() {
-    // const prefersDark = useMediaQuery('(prefers-color-scheme: dark)');
-
     const toggleDarkMode = () => {
-      if (sessionStorage.theme === 'dark') {
+      if (localStorage.theme === 'dark') {
         document.documentElement.classList.remove('dark');
-        sessionStorage.theme = 'light';
+        localStorage.theme = 'light';
       } else {
         document.documentElement.classList.add('dark');
-        sessionStorage.theme = 'dark';
+        localStorage.theme = 'dark';
       }
     };
 
