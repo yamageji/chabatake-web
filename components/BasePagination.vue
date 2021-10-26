@@ -4,26 +4,18 @@
       pt-[32px]
       border-t-[1px] border-warmGray-400
       dark:border-warmGray-600
-      font-source font-bold
+      font-source
       md:pt-[44px]
     "
   >
-    <ul class="flex flex-wrap justify-center items-center">
+    <ul class="flex flex-wrap items-center justify-center">
       <li
         v-if="current > 1"
         class="w-[32px] h-[32px] rounded-[100%] m-[4px] mx-[8px]"
       >
         <nuxt-link
           :to="getPath(current - 1)"
-          class="
-            flex
-            justify-center
-            items-center
-            h-full
-            text-warmGray-700
-            hover:text-warmGray-500
-            dark:hover:text-warmGray-400 dark:text-warmGray-200
-          "
+          class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
           <font-awesome-icon :icon="['fas', 'chevron-left']" />
         </nuxt-link>
@@ -31,15 +23,7 @@
       <li v-if="3 < current" class="w-[32px] h-[32px] rounded-[100%] m-[4px]">
         <nuxt-link
           :to="getPath(1)"
-          class="
-            flex
-            justify-center
-            items-center
-            h-full
-            text-warmGray-700
-            hover:text-warmGray-500
-            dark:hover:text-warmGray-400 dark:text-warmGray-200
-          "
+          class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
           1
         </nuxt-link>
@@ -55,20 +39,12 @@
         v-show="current - 3 <= p && p <= current + 1"
         :key="index"
         class="w-[32px] h-[32px] rounded-[100%] m-[4px]"
-        :class="[activeClass1(p)]"
+        :class="[activeOuterClass(p)]"
       >
         <nuxt-link
           :to="getPath(p + 1)"
-          class="
-            flex
-            justify-center
-            items-center
-            h-full
-            text-warmGray-700
-            hover:text-warmGray-500
-            dark:hover:text-warmGray-400 dark:text-warmGray-200
-          "
-          :class="[activeClass2(p)]"
+          class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
+          :class="[activeinnerClass(p)]"
         >
           {{ p + 1 }}
         </nuxt-link>
@@ -85,15 +61,7 @@
       >
         <nuxt-link
           :to="getPath(pager.length)"
-          class="
-            flex
-            justify-center
-            items-center
-            h-full
-            text-warmGray-700
-            hover:text-warmGray-500
-            dark:hover:text-warmGray-400 dark:text-warmGray-200
-          "
+          class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
           {{ pager.length }}
         </nuxt-link>
@@ -104,15 +72,7 @@
       >
         <nuxt-link
           :to="getPath(current + 1)"
-          class="
-            flex
-            justify-center
-            items-center
-            h-full
-            text-warmGray-700
-            hover:text-warmGray-500
-            dark:hover:text-warmGray-400 dark:text-warmGray-200
-          "
+          class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
           <font-awesome-icon :icon="['fas', 'chevron-right']" />
         </nuxt-link>
@@ -152,12 +112,12 @@ export default defineComponent({
       }
     };
 
-    const activeClass1 = (p) => {
+    const activeOuterClass = (p) => {
       return props.current === p + 1
-        ? 'bg-warmGray-700 dark:bg-warmGray-200 '
+        ? 'bg-warmGray-600 dark:bg-warmGray-200 '
         : '';
     };
-    const activeClass2 = (p) => {
+    const activeinnerClass = (p) => {
       return props.current === p + 1
         ? 'text-warmGray-200 hover:text-warmGray-200 dark:text-warmGray-700 dark:hover:text-warmGray-600'
         : '';
@@ -165,8 +125,8 @@ export default defineComponent({
 
     return {
       getPath,
-      activeClass1,
-      activeClass2,
+      activeOuterClass,
+      activeinnerClass,
     };
   },
 });
