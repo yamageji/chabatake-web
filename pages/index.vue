@@ -1,5 +1,6 @@
 <template>
   <div class="col-span-2 md:col-span-1 mt-[16px]">
+    <LayoutNavigation />
     <ul
       v-for="content in data"
       :key="content.id"
@@ -102,14 +103,12 @@ export default defineComponent({
     const data = ref('');
     const selectedCategory = ref('');
     const pager = ref('');
-
     const { route } = useContext();
     const page = route.value.params.p || '1';
     const categoryId = route.value.params.categoryId;
     const limit = 5;
     const articleFilter =
       categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
       const result = await $microcms.get({
@@ -124,22 +123,18 @@ export default defineComponent({
       pager.value = computed(() => [
         ...Array(Math.ceil(result.totalCount / limit)).keys(),
       ]).value;
-
       const categories = await $microcms.get({
         endpoint: 'categories',
         queries: {
           fields: 'id',
         },
       });
-
       const myCategory =
         categoryId !== undefined
           ? categories.contents.find((content) => content.id === categoryId)
           : undefined;
-
       selectedCategory.value = myCategory;
     });
-
     return {
       data,
       selectedCategory,
