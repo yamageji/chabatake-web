@@ -2,10 +2,10 @@
   <nav
     class="
       col-span-2
-      mt-[28px]
+      mt-[20px]
       mb-[12px]
       ml-[8px]
-      md:mt-[36px] md:mb-[16px] md:ml-[12px]
+      md:mt-[24px] md:mb-[16px] md:ml-[12px]
     "
   >
     <ul

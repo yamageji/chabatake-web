@@ -8,7 +8,7 @@
       md:pl-[32px]
       md:col-span-1
       md:h-full
-      md:mt-[88px]
+      md:mt-[80px]
     "
   >
     <div class="p-[12px] md:px-[0px] md:py-[0px]">
