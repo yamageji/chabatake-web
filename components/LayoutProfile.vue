@@ -3,7 +3,12 @@
     class="
       col-span-2
       mt-[40px]
-      md:w-[260px] md:pt-[16px] md:pl-[32px] md:col-span-1 md:h-full md:mt-[0px]
+      md:w-[260px]
+      md:pt-[16px]
+      md:pl-[32px]
+      md:col-span-1
+      md:h-full
+      md:mt-[88px]
     "
   >
     <div class="p-[12px] md:px-[0px] md:py-[0px]">

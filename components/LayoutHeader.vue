@@ -35,19 +35,6 @@
       <!-- ダークモードボタンを後で実装 -->
       <!-- <BaseDarkmodeButton /> -->
     </div>
-    <div
-      class="
-        w-full
-        bg-hero-pattern bg-cover bg-center
-        border-[1px] border-warmGray-500
-        h-[160px]
-        sm:h-[200px]
-        md:h-[280px]
-        rounded-[4px]
-        sm:rounded-[8px]
-        md:rounded-[12px]
-      "
-    ></div>
   </header>
 </template>
 
