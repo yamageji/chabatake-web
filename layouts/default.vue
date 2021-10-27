@@ -3,7 +3,6 @@
     <LayoutWrapper>
       <LayoutHeader />
       <Nuxt />
-      <LayoutProfile />
       <LayoutFooter />
     </LayoutWrapper>
   </div>

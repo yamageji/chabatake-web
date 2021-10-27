@@ -1,90 +1,110 @@
 <template>
-  <div class="col-span-2 md:col-span-1 mt-[16px]">
-    <ul
-      v-for="content in data"
-      :key="content.id"
-      class="border-t-[1px] border-warmGray-400 dark:border-warmGray-600"
-    >
-      <nuxt-link :to="`/${content.id}`">
-        <div class="py-[6px] md:py-[8px]">
-          <li
-            class="
-              flex
-              items-center
-              gap-[12px]
-              p-[6px]
-              hover:bg-warmGray-200
-              rounded-[4px]
-              transition-bg
-              duration-200
-              ease-in-out
-              md:gap-[14px] md:p-[10px]
-              dark:hover:bg-warmGray-700
-            "
-          >
-            <div
+  <div class="grid grid-cols-layout grid-rows-layout">
+    <div
+      class="
+        col-span-2
+        w-full
+        bg-hero-pattern bg-cover bg-center
+        border-[1px] border-warmGray-500
+        h-[160px]
+        sm:h-[200px]
+        md:h-[280px]
+        rounded-[4px]
+        sm:rounded-[8px]
+        md:rounded-[12px]
+      "
+    ></div>
+
+    <div class="col-span-2 md:col-span-1 mt-[16px]">
+      <LayoutNavigation />
+      <ul
+        v-for="content in data"
+        :key="content.id"
+        class="border-t-[1px] border-warmGray-400 dark:border-warmGray-600"
+      >
+        <nuxt-link :to="`/${content.id}`">
+          <div class="py-[6px] md:py-[8px]">
+            <li
               class="
                 flex
                 items-center
-                justify-center
-                h-[80px]
-                w-[80px]
-                md:
-                bg-warmGray-200
-                rounded-[8px]
-                md:h-[100px] md:w-[100px]
-                dark:bg-warmGray-300
+                gap-[12px]
+                p-[6px]
+                hover:bg-warmGray-200
+                rounded-[4px]
+                transition-bg
+                duration-200
+                ease-in-out
+                md:gap-[14px] md:p-[10px]
+                dark:hover:bg-warmGray-700
               "
             >
-              <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
-                <img :src="content.pictogram.url" width="100%" hight="100%" />
-              </picture>
-            </div>
-            <div>
-              <h1
-                class="
-                  text-[18px]
-                  font-noto font-bold
-                  text-warmGray-700
-                  md:text-[22px]
-                  dark:text-warmGray-200
-                "
-              >
-                {{ content.title }}
-              </h1>
               <div
                 class="
-                  text-[13px]
-                  font-noto
-                  text-warmGray-700
-                  md:text-[15px] md:mt-[2px]
-                  dark:text-warmGray-200
+                  flex
+                  items-center
+                  justify-center
+                  h-[80px]
+                  w-[80px]
+                  md:
+                  bg-warmGray-200
+                  rounded-[8px]
+                  md:h-[100px] md:w-[100px]
+                  dark:bg-warmGray-300
                 "
               >
-                <time
-                  ><font-awesome-icon :icon="['far', 'clock']" />
-                  {{ content.date | formatDate }}</time
-                >
+                <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
+                  <img :src="content.pictogram.url" width="100%" hight="100%" />
+                </picture>
               </div>
-              <CategoryLabel
-                v-if="content.category"
-                :category="content.category"
-                class="mt-[6px] md:mt-[10px]"
-              />
-            </div>
-          </li>
-        </div>
-      </nuxt-link>
-    </ul>
+              <div>
+                <h1
+                  class="
+                    text-[18px]
+                    font-noto font-bold
+                    text-warmGray-700
+                    md:text-[22px]
+                    dark:text-warmGray-200
+                  "
+                >
+                  {{ content.title }}
+                </h1>
+                <div
+                  class="
+                    text-[13px]
+                    font-noto
+                    text-warmGray-700
+                    md:text-[15px] md:mt-[2px]
+                    dark:text-warmGray-200
+                  "
+                >
+                  <time
+                    ><font-awesome-icon :icon="['far', 'clock']" />
+                    {{ content.date | formatDate }}</time
+                  >
+                </div>
+                <CategoryLabel
+                  v-if="content.category"
+                  :category="content.category"
+                  class="mt-[6px] md:mt-[10px]"
+                />
+              </div>
+            </li>
+          </div>
+        </nuxt-link>
+      </ul>
 
-    <!-- ページネーション -->
-    <div>
-      <BasePagination
-        :pager="pager"
-        :current="Number(page)"
-        :category="selectedCategory"
-      />
+      <!-- ページネーション -->
+      <div>
+        <BasePagination
+          :pager="pager"
+          :current="Number(page)"
+          :category="selectedCategory"
+        />
+      </div>
     </div>
+
+    <LayoutProfile />
   </div>
 </template>
 
@@ -102,14 +122,12 @@ export default defineComponent({
     const data = ref('');
     const selectedCategory = ref('');
     const pager = ref('');
-
     const { route } = useContext();
     const page = route.value.params.p || '1';
     const categoryId = route.value.params.categoryId;
     const limit = 5;
     const articleFilter =
       categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
       const result = await $microcms.get({
@@ -124,22 +142,18 @@ export default defineComponent({
       pager.value = computed(() => [
         ...Array(Math.ceil(result.totalCount / limit)).keys(),
       ]).value;
-
       const categories = await $microcms.get({
         endpoint: 'categories',
         queries: {
           fields: 'id',
         },
       });
-
       const myCategory =
         categoryId !== undefined
           ? categories.contents.find((content) => content.id === categoryId)
           : undefined;
-
       selectedCategory.value = myCategory;
     });
-
     return {
       data,
       selectedCategory,

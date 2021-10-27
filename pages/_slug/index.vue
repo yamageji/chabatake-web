@@ -1,9 +1,31 @@
 <template>
-  <main class="col-span-2 md:col-span-1 mt-[16px]">
-    <h1 class="mb-[20px]">{{ title }}</h1>
-    <p class="mb-[40px]">{{ date | formatDate }}</p>
-    <div class="post w-[600px]" v-html="body"></div>
-  </main>
+  <div class="grid grid-cols-layout grid-rows-layout">
+    <div
+      class="
+        col-span-2
+        w-full
+        border-[1px] border-warmGray-500
+        h-[160px]
+        sm:h-[200px]
+        md:h-[280px]
+        rounded-[4px]
+        sm:rounded-[8px]
+        md:rounded-[12px]
+      "
+    >
+      <h1 class="mb-[20px]">{{ title }}</h1>
+      <p class="mb-[40px]">{{ date | formatDate }}</p>
+    </div>
+
+    <div class="col-span-2 md:col-span-1 mt-[16px]">
+      <LayoutNavigation />
+      <main class="col-span-2 md:col-span-1 mt-[16px]">
+        <div class="post" v-html="body"></div>
+      </main>
+    </div>
+
+    <LayoutProfile />
+  </div>
 </template>
 
 <script>
