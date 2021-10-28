@@ -40,31 +40,68 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// wamgray-50：#FAFAFA
+// wamgray-100：#F5F5F5
+// wamgray-200：#E5E5E5
+// wamgray-300：#D4D4D4
+// wamgray-400：#A3A3A3
+// wamgray-500：#78716C
+// wamgray-600：#57534E
+// wamgray-700：#44403C
+// wamgray-800：#292524
+// wamgray-900：#1C1917
+
+// emerald-50: #ECFDF5
+// emerald-100: #D1FAE5
+// emerald-200: #A7F3D0
+// emerald-300: #6EE7B7
+// emerald-400: #34D399
+// emerald-500: #10B981
+// emerald-600: #059669
+
 .post ::v-deep {
+  font-family: 'Noto Sans JP', 'sans-serif';
+  color: #292524;
+  font-size: 16px;
+  line-height: 1.8;
+
   & > h1 {
-    font-size: 30px;
+    margin: 44px 0 16px;
+    padding-left: 12px;
+    border-left: solid #10b981 8px;
+    font-size: 24px;
     font-weight: bold;
-    margin: 40px 0 20px;
-    background-color: #eee;
-    padding: 10px 20px;
-    border-radius: 5px;
+    letter-spacing: 0.05em;
   }
 
   & > h2 {
-    font-size: 24px;
+    margin: 32px 0 16px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #44403c;
+    font-size: 20px;
     font-weight: bold;
-    margin: 40px 0 16px;
-    border-bottom: 1px solid #ddd;
+    letter-spacing: 0.05em;
   }
 
   & > p {
-    line-height: 1.8;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.01em;
+
+    & > strong {
+      font-weight: bold;
+    }
   }
 
   & > ol {
     list-style-type: decimal;
     list-style-position: inside;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .post ::v-deep {
+    & > h1 {
+      font-size: 30px;
+    }
   }
 }
 </style>
