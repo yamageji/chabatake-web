@@ -1,20 +1,34 @@
 <template>
   <div class="grid grid-cols-layout grid-rows-layout">
-    <div
-      class="
-        col-span-2
-        w-full
-        border-[1px] border-warmGray-500
-        h-[160px]
-        sm:h-[200px]
-        md:h-[280px]
-        rounded-[4px]
-        sm:rounded-[8px]
-        md:rounded-[12px]
-      "
-    >
-      <h1 class="mb-[20px]">{{ title }}</h1>
-      <p class="mb-[40px]">{{ date | formatDate }}</p>
+    <div class="col-span-2">
+      <div
+        class="
+          flex flex-col
+          items-center
+          justify-center
+          w-full
+          px-[12px]
+          pt-[8px]
+          pb-[28px]
+          md:px-[24px] md:pt-[12px] md:pb-[36px]
+        "
+      >
+        <picture v-if="pictogram">
+          <img :src="pictogram.url" width="120px" hight="120px" />
+        </picture>
+        <h1
+          class="
+            font-noto font-bold
+            text-[28px] text-warmGray-700
+            md:mt-[4px] md:text-[34px]
+          "
+        >
+          {{ title }}
+        </h1>
+      </div>
+      <p class="mt-[12px] text-[14px] md:text-[16px] md:mt-[20px]">
+        公開：{{ date | formatDate }}
+      </p>
     </div>
 
     <div class="col-span-2 md:col-span-1 mt-[16px]">
