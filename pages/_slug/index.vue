@@ -26,13 +26,20 @@
           {{ title }}
         </h1>
       </div>
-      <p class="mt-[12px] text-[14px] md:text-[16px] md:mt-[20px]">
-        公開：{{ date | formatDate }}
-      </p>
+
+      <div class="flex flex-col justify-center">
+        <div class="flex gap-[8px] mt-[20px]">
+          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
+          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
+          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
+        </div>
+        <p class="mt-[12px] text-[14px] md:text-[16px] md:mt-[20px]">
+          公開：{{ date | formatDate }}
+        </p>
+      </div>
     </div>
 
     <div class="col-span-2 md:col-span-1 mt-[16px]">
-      <LayoutNavigation />
       <main class="col-span-2 md:col-span-1 mt-[16px]">
         <div class="post" v-html="body"></div>
       </main>
@@ -72,29 +79,44 @@ export default {
 // emerald-400: #34D399
 // emerald-500: #10B981
 // emerald-600: #059669
+// emerald-700: #047857
+// emerald-800: #166534
+// emerald-900: #14532D
 
 .post ::v-deep {
+  --text-color: #292524;
+  --text-sub-color: #78716c;
+  --code-bg-color: #e5e5e5;
+  --thema-color: #34d399;
+
   font-family: 'Noto Sans JP', 'sans-serif';
-  color: #292524;
+  color: var(--text-color);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.9;
 
   & > h1 {
-    margin: 44px 0 16px;
-    padding-left: 12px;
-    border-left: solid #10b981 8px;
-    font-size: 24px;
+    margin: 32px 0 8px;
+    padding-left: 8px;
+    border-left: solid 6px var(--thema-color);
+    font-size: 28px;
     font-weight: bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
   }
 
   & > h2 {
-    margin: 32px 0 16px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #44403c;
+    margin: 28px 0 8px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-sub-color);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  & > h3 {
+    margin: 18px 0 0;
     font-size: 20px;
     font-weight: bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
   }
 
   & > p {
@@ -105,16 +127,65 @@ export default {
     }
   }
 
+  & > ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 16px;
+  }
+
   & > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    padding-left: 16px;
+  }
+
+  & a {
+    text-decoration: underline;
+    text-underline-position: under;
+    &:hover {
+      color: var(--thema-color);
+    }
+    &:visited {
+      color: var(--text-sub-color);
+    }
+  }
+
+  & code {
+    padding: 0.2em 0.4em;
+    background-color: var(--code-bg-color);
+    font-size: 0.85em;
+    border-radius: 4px;
+    vertical-align: 0.08em;
+  }
+
+  & pre {
+    margin: 8px 0 8px;
+    padding: 8px;
+    background-color: #292524;
+    color: white;
+    & > code {
+      background-color: #292524;
+    }
   }
 }
 
 @media screen and(min-width: 768px) {
   .post ::v-deep {
     & > h1 {
+      margin: 40px 0 16px;
+      padding-left: 12px;
       font-size: 30px;
+      border-left: solid 8px var(--thema-color);
+    }
+    & > h2 {
+      margin: 32px 0 16px;
+      padding-bottom: 4px;
+      font-size: 24px;
+    }
+    & > h3 {
+      margin: 24px 0 0;
+      font-size: 22px;
+      letter-spacing: 0.02em;
     }
   }
 }
