@@ -8,9 +8,8 @@
           justify-center
           w-full
           px-[12px]
-          pt-[8px]
-          pb-[28px]
-          md:px-[24px] md:pt-[12px] md:pb-[36px]
+          mt-[8px]
+          md:px-[24px] md:mt-[12px]
         "
       >
         <picture v-if="pictogram">
@@ -18,21 +17,45 @@
         </picture>
         <h1
           class="
+            max-w-[680px]
+            mt-[8px]
             font-noto font-bold
             text-[28px] text-warmGray-700
-            md:mt-[4px] md:text-[34px]
+            md:mt-[16px] md:text-[34px]
           "
         >
           {{ title }}
         </h1>
       </div>
-      <p class="mt-[12px] text-[14px] md:text-[16px] md:mt-[20px]">
-        公開：{{ date | formatDate }}
-      </p>
+
+      <div class="flex flex-col justify-center mt-[36px] md:mt-[44px]">
+        <div class="flex gap-[8px] mx-auto">
+          <div
+            v-for="data in [1, 2, 3]"
+            :key="data.index"
+            class="
+              w-[8px]
+              h-[8px]
+              bg-warmGray-500
+              rounded-full
+              md:w-[10px] md:h-[10px]
+            "
+          ></div>
+        </div>
+        <p
+          class="
+            mt-[16px]
+            text-[14px] text-center text-warmGray-600
+            font-noto
+            md:text-[16px] md:mt-[20px]
+          "
+        >
+          公開：{{ date | formatDate }}　　更新：{{ updatedAt | formatDate }}
+        </p>
+      </div>
     </div>
 
     <div class="col-span-2 md:col-span-1 mt-[16px]">
-      <LayoutNavigation />
       <main class="col-span-2 md:col-span-1 mt-[16px]">
         <div class="post" v-html="body"></div>
       </main>
@@ -72,29 +95,58 @@ export default {
 // emerald-400: #34D399
 // emerald-500: #10B981
 // emerald-600: #059669
+// emerald-700: #047857
+// emerald-800: #166534
+// emerald-900: #14532D
 
 .post ::v-deep {
+  --text-color: #292524;
+  --text-sub-color: #78716c;
+  --code-bg-color: #e5e5e5;
+  --thema-color: #34d399;
+
   font-family: 'Noto Sans JP', 'sans-serif';
-  color: #292524;
+  color: var(--text-color);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.9;
 
   & > h1 {
-    margin: 44px 0 16px;
-    padding-left: 12px;
-    border-left: solid #10b981 8px;
-    font-size: 24px;
+    position: relative;
+    margin: 32px 0 8px;
+    padding-left: 16px;
+    font-size: 26px;
+    line-height: 1.7;
     font-weight: bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+      width: 6px;
+      height: 100%;
+      background: var(--text-sub-color);
+    }
   }
 
   & > h2 {
-    margin: 32px 0 16px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #44403c;
-    font-size: 20px;
+    margin: 28px 0 8px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-sub-color);
+    font-size: 22px;
+    line-height: 1.7;
     font-weight: bold;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
+  }
+
+  & > h3 {
+    margin: 18px 0 0;
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: bold;
+    letter-spacing: 0.02em;
   }
 
   & > p {
@@ -105,16 +157,64 @@ export default {
     }
   }
 
+  & > ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 16px;
+  }
+
   & > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    padding-left: 16px;
+  }
+
+  & a {
+    text-decoration: underline;
+    text-underline-position: under;
+    &:hover {
+      color: var(--thema-color);
+    }
+    &:visited {
+      color: var(--text-sub-color);
+    }
+  }
+
+  & code {
+    padding: 0.2em 0.4em;
+    background-color: var(--code-bg-color);
+    font-size: 0.85em;
+    border-radius: 4px;
+    vertical-align: 0.08em;
+  }
+
+  & pre {
+    margin: 8px 0 8px;
+    padding: 8px;
+    background-color: #292524;
+    color: white;
+    & > code {
+      background-color: #292524;
+    }
   }
 }
 
 @media screen and(min-width: 768px) {
   .post ::v-deep {
     & > h1 {
-      font-size: 30px;
+      margin: 40px 0 16px;
+      padding-left: 20px;
+      font-size: 28px;
+    }
+    & > h2 {
+      margin: 32px 0 16px;
+      padding-bottom: 4px;
+      font-size: 24px;
+    }
+    & > h3 {
+      margin: 24px 0 0;
+      font-size: 22px;
+      letter-spacing: 0.02em;
     }
   }
 }
