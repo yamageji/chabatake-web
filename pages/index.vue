@@ -41,12 +41,11 @@
             >
               <div
                 class="
-                  flex
+                  flex-none flex
                   items-center
                   justify-center
                   h-[80px]
                   w-[80px]
-                  md:
                   bg-warmGray-200
                   rounded-[8px]
                   md:h-[100px] md:w-[100px]
@@ -54,10 +53,11 @@
                 "
               >
                 <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
-                  <img :src="content.pictogram.url" width="100%" hight="100%" />
+                  <img :src="content.pictogram.url" />
                 </picture>
               </div>
-              <div>
+
+              <div claa="flex-grow">
                 <h1
                   class="
                     text-[18px]
