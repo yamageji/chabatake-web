@@ -50,7 +50,8 @@
             md:text-[16px] md:mt-[20px]
           "
         >
-          公開：{{ date | formatDate }}　　更新：{{ updatedAt | formatDate }}
+          <span v-if="date"> 公開：{{ date | formatDate }} </span>
+          <span v-if="updatedAt"> 更新：{{ updatedAt | formatDate }}</span>
         </p>
       </div>
     </div>
@@ -66,12 +67,27 @@
 </template>
 
 <script>
+import cheerio from 'cheerio';
+import hljs from 'highlight.js';
+
 export default {
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({
       endpoint: `blog/${params.slug}`,
     });
-    return data;
+
+    // 記事内のコードのシンタックスハイライト用
+    const $ = cheerio.load(data.body);
+    $('pre code').each((_, elm) => {
+      const result = hljs.highlightAuto($(elm).text());
+      $(elm).html(result.value);
+      $(elm).addClass('hljs');
+    });
+
+    return {
+      ...data,
+      body: $.html(),
+    };
   },
 };
 </script>
@@ -186,15 +202,9 @@ export default {
     font-size: 0.85em;
     border-radius: 4px;
     vertical-align: 0.08em;
-  }
-
-  & pre {
-    margin: 8px 0 8px;
-    padding: 8px;
-    background-color: #292524;
-    color: white;
-    & > code {
-      background-color: #292524;
+    &.hljs {
+      margin: 8px 0 8px;
+      padding: 8px 12px;
     }
   }
 }
