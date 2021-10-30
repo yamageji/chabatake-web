@@ -8,9 +8,8 @@
           justify-center
           w-full
           px-[12px]
-          pt-[8px]
-          pb-[28px]
-          md:px-[24px] md:pt-[12px] md:pb-[36px]
+          mt-[8px]
+          md:px-[24px] md:mt-[12px]
         "
       >
         <picture v-if="pictogram">
@@ -18,23 +17,40 @@
         </picture>
         <h1
           class="
+            max-w-[680px]
+            mt-[8px]
             font-noto font-bold
             text-[28px] text-warmGray-700
-            md:mt-[4px] md:text-[34px]
+            md:mt-[16px] md:text-[34px]
           "
         >
           {{ title }}
         </h1>
       </div>
 
-      <div class="flex flex-col justify-center">
-        <div class="flex gap-[8px] mt-[20px]">
-          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
-          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
-          <div class="w-[10px] h-[10px] bg-warmGray-500 rounded-full"></div>
+      <div class="flex flex-col justify-center mt-[36px] md:mt-[44px]">
+        <div class="flex gap-[8px] mx-auto">
+          <div
+            v-for="data in [1, 2, 3]"
+            :key="data.index"
+            class="
+              w-[8px]
+              h-[8px]
+              bg-warmGray-500
+              rounded-full
+              md:w-[10px] md:h-[10px]
+            "
+          ></div>
         </div>
-        <p class="mt-[12px] text-[14px] md:text-[16px] md:mt-[20px]">
-          公開：{{ date | formatDate }}
+        <p
+          class="
+            mt-[16px]
+            text-[14px] text-center text-warmGray-600
+            font-noto
+            md:text-[16px] md:mt-[20px]
+          "
+        >
+          公開：{{ date | formatDate }}　　更新：{{ updatedAt | formatDate }}
         </p>
       </div>
     </div>
@@ -95,12 +111,24 @@ export default {
   line-height: 1.9;
 
   & > h1 {
+    position: relative;
     margin: 32px 0 8px;
-    padding-left: 8px;
-    border-left: solid 6px var(--thema-color);
-    font-size: 28px;
+    padding-left: 16px;
+    font-size: 26px;
+    line-height: 1.7;
     font-weight: bold;
     letter-spacing: 0.02em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+      width: 6px;
+      height: 100%;
+      background: var(--text-sub-color);
+    }
   }
 
   & > h2 {
@@ -108,6 +136,7 @@ export default {
     padding-bottom: 2px;
     border-bottom: 1px solid var(--text-sub-color);
     font-size: 22px;
+    line-height: 1.7;
     font-weight: bold;
     letter-spacing: 0.02em;
   }
@@ -115,6 +144,7 @@ export default {
   & > h3 {
     margin: 18px 0 0;
     font-size: 20px;
+    line-height: 1.7;
     font-weight: bold;
     letter-spacing: 0.02em;
   }
@@ -173,9 +203,8 @@ export default {
   .post ::v-deep {
     & > h1 {
       margin: 40px 0 16px;
-      padding-left: 12px;
-      font-size: 30px;
-      border-left: solid 8px var(--thema-color);
+      padding-left: 20px;
+      font-size: 28px;
     }
     & > h2 {
       margin: 32px 0 16px;
