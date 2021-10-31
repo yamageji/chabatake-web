@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '茶畑 WEB',
+    title: 'chabatake WEB',
     htmlAttrs: {
       lang: 'ja',
     },
