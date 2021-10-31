@@ -50,8 +50,8 @@
             md:text-[16px] md:mt-[20px]
           "
         >
-          <span v-if="date"> 公開：{{ date | formatDate }} </span>
-          <span v-if="updatedAt"> 更新：{{ updatedAt | formatDate }}</span>
+          <span v-if="date"> 公開：{{ date | formatDate }}</span>
+          <span v-if="updatedAt">　　更新：{{ updatedAt | formatDate }}</span>
         </p>
       </div>
     </div>
