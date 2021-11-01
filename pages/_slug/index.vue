@@ -96,28 +96,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// wamgray-50：#FAFAFA
-// wamgray-100：#F5F5F5
-// wamgray-200：#E5E5E5
-// wamgray-300：#D4D4D4
-// wamgray-400：#A3A3A3
-// wamgray-500：#78716C
-// wamgray-600：#57534E
-// wamgray-700：#44403C
-// wamgray-800：#292524
-// wamgray-900：#1C1917
-
-// emerald-50: #ECFDF5
-// emerald-100: #D1FAE5
-// emerald-200: #A7F3D0
-// emerald-300: #6EE7B7
-// emerald-400: #34D399
-// emerald-500: #10B981
-// emerald-600: #059669
-// emerald-700: #047857
-// emerald-800: #166534
-// emerald-900: #14532D
-
 .post ::v-deep {
   --text-color: #292524;
   --text-sub-color: #78716c;
