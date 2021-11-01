@@ -46,7 +46,7 @@ export default {
         property: 'og:image',
         content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
       },
-      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
