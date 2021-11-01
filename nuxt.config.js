@@ -23,26 +23,30 @@ export default {
         content:
           'chabatake WEBはkoyama shigehitoの個人ブログです。主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめています。',
       },
-      // {
-      //   hid: 'og:site_name',
-      //   property: 'og:site_name',
-      //   content: 'chabatake WEB',
-      // },
-      // { hid: 'og:type', property: 'og:type', content: 'website' },
-      // { hid: 'og:url', property: 'og:url', content: url },
-      // { hid: 'og:title', property: 'og:title', content: 'chabatake WEB' },
-      // {
-      //   hid: 'og:description',
-      //   property: 'og:description',
-      //   content:
-      //     'chabatake WEBはkoyama shigehitoの個人ブログです。主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめています。',
-      // },
-      // {
-      //   hid: 'og:image',
-      //   property: 'og:image',
-      //   content: uri + 'images/shared/img_ogp.png',
-      // },
-      // { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'chabatake WEB',
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://www.chabatake-web.com',
+      },
+      { hid: 'og:title', property: 'og:title', content: 'chabatake WEB' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'chabatake WEBはkoyama shigehitoの個人ブログです。主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめています。',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
+      },
+      { name: 'twitter:card', content: 'summary' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
