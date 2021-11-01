@@ -22,6 +22,7 @@
             font-noto font-bold
             text-[28px] text-warmGray-700
             md:mt-[16px] md:text-[34px]
+            dark:text-warmGray-200
           "
         >
           {{ title }}
@@ -39,6 +40,7 @@
               bg-warmGray-500
               rounded-full
               md:w-[10px] md:h-[10px]
+              dark:bg-warmGray-300
             "
           ></div>
         </div>
@@ -48,6 +50,7 @@
             text-[14px] text-center text-warmGray-600
             font-noto
             md:text-[16px] md:mt-[20px]
+            dark:text-warmGray-200
           "
         >
           <span v-if="date"> 公開：{{ date | formatDate }}</span>
@@ -120,6 +123,10 @@ export default {
   --text-sub-color: #78716c;
   --code-bg-color: #e5e5e5;
   --thema-color: #34d399;
+
+  --text-color-dark: #e5e5e5;
+  --text-sub-color-dark: #d4d4d4;
+  --code-bg-color-dark: #78716c;
 
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
@@ -225,6 +232,26 @@ export default {
       margin: 24px 0 0;
       font-size: 22px;
       letter-spacing: 0.02em;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post ::v-deep {
+    color: var(--text-color-dark);
+
+    & > h1 {
+      &:before {
+        background: var(--text-sub-color-dark);
+      }
+    }
+
+    & > h2 {
+      border-bottom: 1px solid var(--text-sub-color-dark);
+    }
+
+    & code {
+      background-color: var(--code-bg-color-dark);
     }
   }
 }
