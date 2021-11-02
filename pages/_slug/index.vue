@@ -104,7 +104,7 @@ export default {
 
   --text-color-dark: #e5e5e5;
   --text-sub-color-dark: #d4d4d4;
-  --code-bg-color-dark: #78716c;
+  --code-bg-color-dark: #57534e;
 
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
@@ -173,11 +173,9 @@ export default {
   & a {
     text-decoration: underline;
     text-underline-position: under;
-    &:hover {
-      color: var(--thema-color);
-    }
+    color: var(--thema-color);
     &:visited {
-      color: var(--text-sub-color);
+      color: var(--thema-color);
     }
   }
 
@@ -226,6 +224,14 @@ export default {
 
     & > h2 {
       border-bottom: 1px solid var(--text-sub-color-dark);
+    }
+
+    & a {
+      text-underline-position: under;
+      color: var(--thema-color);
+      &:visited {
+        color: var(--thema-color);
+      }
     }
 
     & code {
