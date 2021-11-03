@@ -104,7 +104,18 @@
       </div>
     </div>
 
-    <LayoutProfile />
+    <LayoutProfile
+      class="
+        col-span-2
+        mt-[40px]
+        md:w-[260px]
+        md:pt-[16px]
+        md:pl-[32px]
+        md:col-span-1
+        md:h-full
+        md:mt-[80px]
+      "
+    />
   </div>
 </template>
 
@@ -128,6 +139,7 @@ export default defineComponent({
     const limit = 5;
     const articleFilter =
       categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
       const result = await $microcms.get({
@@ -154,6 +166,7 @@ export default defineComponent({
           : undefined;
       selectedCategory.value = myCategory;
     });
+
     return {
       data,
       selectedCategory,

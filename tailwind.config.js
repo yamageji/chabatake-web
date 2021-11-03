@@ -12,6 +12,9 @@ module.exports = {
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        mdlg: '840px',
+      },
       fontFamily: {
         noto: ['Noto Sans JP', 'sans-serif'],
         source: ['Source Sans Pro', 'sans-serif'],

@@ -53,8 +53,10 @@
             dark:text-warmGray-200
           "
         >
-          <span v-if="date"> 公開：{{ date | formatDate }}</span>
-          <span v-if="updatedAt">　　更新：{{ updatedAt | formatDate }}</span>
+          <span v-if="date" class="mr-[20px]">
+            公開：{{ date | formatDate }}</span
+          >
+          <span v-if="updatedAt">更新：{{ updatedAt | formatDate }}</span>
         </p>
       </div>
     </div>
@@ -65,7 +67,16 @@
       </main>
     </div>
 
-    <LayoutProfile />
+    <div
+      class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[64px] mdlg:ml-[24px]"
+    >
+      <LayoutTbleOfContent
+        :table-of-content="tableOfContent"
+        class="hidden mdlg:block"
+      />
+
+      <LayoutProfile class="mt-[40px] mdlg:w-[280px] mdlg:pl-[4px]" />
+    </div>
   </div>
 </template>
 
@@ -78,18 +89,25 @@ export default {
     const data = await $microcms.get({
       endpoint: `blog/${params.slug}`,
     });
-
-    // 記事内のコードのシンタックスハイライト用
+    // HTMLパーサーで目次とコードのシンタックスハイライト
     const $ = cheerio.load(data.body);
+    // 目次用に見出しの抜き出
+    const headings = $('h1, h2, h3').toArray();
+    const tableOfContent = headings.map((data) => ({
+      text: data.children[0].data,
+      id: data.attribs.id,
+      name: data.name,
+    }));
+    // 記事内のコードのシンタックスハイライト
     $('pre code').each((_, elm) => {
       const result = hljs.highlightAuto($(elm).text());
       $(elm).html(result.value);
       $(elm).addClass('hljs');
     });
-
     return {
       ...data,
       body: $.html(),
+      tableOfContent,
     };
   },
 };
@@ -100,11 +118,12 @@ export default {
   --text-color: #292524;
   --text-sub-color: #78716c;
   --code-bg-color: #e5e5e5;
-  --thema-color: #34d399;
+  --thema-color: #10b981;
 
   --text-color-dark: #e5e5e5;
   --text-sub-color-dark: #d4d4d4;
   --code-bg-color-dark: #57534e;
+  --thema-color-dark: #34d399;
 
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
@@ -128,7 +147,7 @@ export default {
       border-radius: 3px;
       width: 6px;
       height: 100%;
-      background: var(--text-sub-color);
+      background: var(--thema-color);
     }
   }
 
@@ -218,7 +237,7 @@ export default {
 
     & > h1 {
       &:before {
-        background: var(--text-sub-color-dark);
+        background: var(--thema-color-dark);
       }
     }
 
@@ -228,9 +247,9 @@ export default {
 
     & a {
       text-underline-position: under;
-      color: var(--thema-color);
+      color: var(--thema-color-dark);
       &:visited {
-        color: var(--thema-color);
+        color: var(--thema-color-dark);
       }
     }
 
