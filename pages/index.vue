@@ -128,6 +128,7 @@ export default defineComponent({
     const limit = 5;
     const articleFilter =
       categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
       const result = await $microcms.get({
@@ -154,6 +155,7 @@ export default defineComponent({
           : undefined;
       selectedCategory.value = myCategory;
     });
+
     return {
       data,
       selectedCategory,

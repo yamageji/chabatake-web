@@ -65,6 +65,7 @@
       </main>
     </div>
 
+    <LayoutTbleOfContent :table-of-content="tableOfContent" />
     <LayoutProfile />
   </div>
 </template>
@@ -78,18 +79,25 @@ export default {
     const data = await $microcms.get({
       endpoint: `blog/${params.slug}`,
     });
-
-    // 記事内のコードのシンタックスハイライト用
+    // HTMLパーサーで目次とコードのシンタックスハイライト
     const $ = cheerio.load(data.body);
+    // 目次用に見出しの抜き出
+    const headings = $('h1, h2, h3').toArray();
+    const tableOfContent = headings.map((data) => ({
+      text: data.children[0].data,
+      id: data.attribs.id,
+      name: data.name,
+    }));
+    // 記事内のコードのシンタックスハイライト
     $('pre code').each((_, elm) => {
       const result = hljs.highlightAuto($(elm).text());
       $(elm).html(result.value);
       $(elm).addClass('hljs');
     });
-
     return {
       ...data,
       body: $.html(),
+      tableOfContent,
     };
   },
 };
