@@ -104,7 +104,18 @@
       </div>
     </div>
 
-    <LayoutProfile />
+    <LayoutProfile
+      class="
+        col-span-2
+        mt-[40px]
+        md:w-[260px]
+        md:pt-[16px]
+        md:pl-[32px]
+        md:col-span-1
+        md:h-full
+        md:mt-[80px]
+      "
+    />
   </div>
 </template>
 
