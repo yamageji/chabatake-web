@@ -67,7 +67,9 @@
       </main>
     </div>
 
-    <div class="col-span-2 mdlg:col-span-1 mt-[64px] mdlg:ml-[24px]">
+    <div
+      class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[64px] mdlg:ml-[24px]"
+    >
       <LayoutTbleOfContent
         :table-of-content="tableOfContent"
         class="hidden mdlg:block"

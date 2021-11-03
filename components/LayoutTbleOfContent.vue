@@ -47,7 +47,7 @@ export default defineComponent({
   name: 'LayoutTableOfContent',
   props: {
     tableOfContent: {
-      type: Object,
+      type: [Object, Array],
       required: true,
     },
   },
