@@ -70,12 +70,14 @@
     <div
       class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[64px] mdlg:ml-[24px]"
     >
-      <LayoutTbleOfContent
-        :table-of-content="tableOfContent"
-        class="hidden mdlg:block"
-      />
+      <div class="mdlg:sticky mdlg:top-[40px]">
+        <LayoutTbleOfContent
+          :table-of-content="tableOfContent"
+          class="hidden mdlg:block"
+        />
 
-      <LayoutProfile class="mt-[40px] mdlg:w-[280px] mdlg:pl-[4px]" />
+        <LayoutProfile class="mt-[40px] mdlg:w-[280px] mdlg:pl-[4px]" />
+      </div>
     </div>
   </div>
 </template>
