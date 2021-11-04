@@ -21,7 +21,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'chabatake WEBはkoyama shigehitoの個人ブログです。主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめています。',
+          '主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめているブログです。',
       },
       {
         hid: 'og:site_name',
@@ -39,14 +39,14 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content:
-          'chabatake WEBはkoyama shigehitoの個人ブログです。主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめています。',
+          '主にWEBのフロントエンド周りの技術やデザインについての学習内容、個人的な関心事についてまとめているブログです。',
       },
       {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
       },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:card', content: 'summary' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
