@@ -112,6 +112,38 @@ export default {
       tableOfContent,
     };
   },
+
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'this.description',
+        },
+        { hid: 'og:title', property: 'og:title', content: this.title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'this.description',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://www.chabatake-web.com/${this.id}/`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
+        },
+        { name: 'twitter:card', content: 'summary' },
+
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+      ],
+    };
+  },
 };
 </script>
 
