@@ -3,7 +3,7 @@
     <LayoutWrapper>
       <LayoutHeader />
       <Nuxt />
-      <LayoutFooter />
+      <LayoutFooter class="mt-[68px]" />
     </LayoutWrapper>
   </div>
 </template>

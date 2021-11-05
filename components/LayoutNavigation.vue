@@ -22,7 +22,7 @@
         :key="item.name"
         class="
           box-border
-          hover:text-warmGray-600
+          hover:text-warmGray-500
           transition-text
           duration-200
           ease-in-out
@@ -37,13 +37,17 @@
               text-[16px]
               tracking-wider
               before:inline-block
-              before:h-[12px]
-              before:w-[12px]
-              before:rounded-[2px]
+              before:h-[10px]
+              before:w-[10px]
+              before:rounded-[1.5px]
               before:mr-[0.5px]
               before:bg-warmGray-300
               dark:before:bg-warmGray-500
-              md:before:mr-[1px] md:text-[20px]
+              md:before:h-[12px]
+              md:before:w-[12px]
+              md:before:rounded-[2px]
+              md:before:mr-[1px]
+              md:text-[20px]
             "
             :class="[
               item.name.toLowerCase() === categoryId

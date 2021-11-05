@@ -3,7 +3,6 @@
     class="
       col-span-2
       h-[60px]
-      mt-[24px]
       border-t-[1px] border-warmGray-400
       py-[16px]
       dark:border-warmGray-600
