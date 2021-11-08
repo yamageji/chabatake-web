@@ -33,10 +33,10 @@
     >
       UIデザイン / WEBフロントエンド周りの技術を中心に学習中です。<br />
     </p>
-    <ul class="flex gap-[8px] mt-[16px]">
+
+    <!-- SNSリンク -->
+    <ul class="flex gap-[6px] mt-[16px]">
       <li
-        v-for="item in snsLink"
-        :key="item.name"
         class="
           flex
           items-center
@@ -50,58 +50,92 @@
           duration-200
           ease-in-out
           fill-current
+          cursor-pointer
           dark:text-warmGray-100
         "
       >
-        <BaseIconLinkButton
-          :url="item.url"
-          :icon-type="item.iconType"
-          :src="item.src"
-          :alt="item.alt"
-          :font-awsome-icon="item.fontAwsomeIcon"
+        <a
+          :href="'https://github.com/K-shigehito'"
+          target="_blank"
+          rel="noopener"
         >
-        </BaseIconLinkButton>
+          <BaseIcon :width="22" height="22" :icon-name="'github'"
+            ><IconGithub
+          /></BaseIcon>
+        </a>
+      </li>
+
+      <li
+        class="
+          flex
+          items-center
+          justify-center
+          w-[32px]
+          h-[32px]
+          text-warmGray-800
+          opacity-50
+          hover:opacity-100
+          transition-opacity
+          duration-200
+          ease-in-out
+          fill-current
+          cursor-pointer
+          dark:text-warmGray-100
+        "
+      >
+        <a
+          :href="'https://zenn.dev/chabatake_i'"
+          target="_blank"
+          rel="noopener"
+        >
+          <BaseIcon :icon-name="'zenn'"><IconZenn /></BaseIcon>
+        </a>
+      </li>
+
+      <li
+        class="
+          flex
+          items-center
+          justify-center
+          w-[32px]
+          h-[32px]
+          text-warmGray-800
+          opacity-50
+          hover:opacity-100
+          transition-opacity
+          duration-200
+          ease-in-out
+          fill-current
+          cursor-pointer
+          dark:text-warmGray-100
+        "
+      >
+        <a
+          :href="'https://twitter.com/chabatake5'"
+          target="_blank"
+          rel="noopener"
+        >
+          <BaseIcon :width="22" height="22" :icon-name="'twitter'"
+            ><IconTwitter
+          /></BaseIcon>
+        </a>
       </li>
     </ul>
   </div>
 </template>
 
 <script lnag="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api';
+import { defineComponent } from '@nuxtjs/composition-api';
+import IconZenn from './icons/IconZenn.vue';
+import IconTwitter from './icons/IconTwitter.vue';
+import IconGithub from './icons/IconGithub.vue';
 
 export default defineComponent({
   name: 'LayoutProfile',
-  setup() {
-    const snsLink = ref([
-      {
-        name: 'github',
-        url: 'https://github.com/K-shigehito',
-        iconType: 'fontAwesone',
-        src: '',
-        alt: '',
-        fontAwsomeIcon: ['fab', 'github'],
-      },
-      {
-        name: 'zenn',
-        url: 'https://zenn.dev/chabatake_i',
-        iconType: 'svg',
-        src: require('@/assets/image/zenn-logo.svg'),
-        alt: 'zenn rogo',
-        fontAwsomeIcon: [],
-      },
-      {
-        name: 'twitter',
-        url: 'https://twitter.com/chabatake5',
-        iconType: 'fontAwesone',
-        src: '',
-        alt: '',
-        fontAwsomeIcon: ['fab', 'twitter'],
-      },
-    ]);
-
-    return {
-      snsLink,
-    };
+  components: {
+    IconZenn,
+    IconTwitter,
+    IconGithub,
   },
 });
 </script>
