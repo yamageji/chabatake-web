@@ -17,7 +17,9 @@
           :to="getPath(current - 1)"
           class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
-          <BaseIcon width="18px" height="18px"><IconLeftArrow /></BaseIcon>
+          <BaseIcon :icon-name="'next-page'" width="18px" height="18px"
+            ><IconLeftArrow
+          /></BaseIcon>
         </nuxt-link>
       </li>
       <li v-if="3 < current" class="w-[32px] h-[32px] rounded-[100%] m-[4px]">
@@ -74,7 +76,9 @@
           :to="getPath(current + 1)"
           class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
-          <BaseIcon width="18px" height="18px"><IconRightArrow /></BaseIcon>
+          <BaseIcon :icon-name="'prev-page'" width="18px" height="18px"
+            ><IconRightArrow
+          /></BaseIcon>
         </nuxt-link>
       </li>
     </ul>
