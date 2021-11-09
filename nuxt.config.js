@@ -1,5 +1,5 @@
 import { client } from './utils/microcms';
-const { API_KEY, SERVICE_DOMAIN, GOOGLE_ANALYTICS_ID } = process.env;
+const { API_KEY, SERVICE_DOMAIN } = process.env;
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
