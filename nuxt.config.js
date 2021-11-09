@@ -1,5 +1,5 @@
 import { client } from './utils/microcms';
-const { API_KEY, SERVICE_DOMAIN } = process.env;
+const { API_KEY, SERVICE_DOMAIN, GOOGLE_ANALYTICS_ID } = process.env;
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -72,6 +72,12 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-microcms-module',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: GOOGLE_ANALYTICS_ID,
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
