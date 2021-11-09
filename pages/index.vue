@@ -78,10 +78,10 @@
                     dark:text-warmGray-200
                   "
                 >
-                  <time
-                    ><font-awesome-icon :icon="['far', 'clock']" />
-                    {{ content.date | formatDate }}</time
-                  >
+                  <time>
+                    <BaseIcon withd="16" height="16"><IconClock /></BaseIcon>
+                    {{ content.date | formatDate }}
+                  </time>
                 </div>
                 <CategoryLabel
                   v-if="content.category"
@@ -127,8 +127,10 @@ import {
   useContext,
   computed,
 } from '@nuxtjs/composition-api';
+import IconClock from '~/components/icons/IconClock.vue';
 
 export default defineComponent({
+  components: { IconClock },
   setup() {
     const data = ref('');
     const selectedCategory = ref('');
@@ -139,7 +141,6 @@ export default defineComponent({
     const limit = 5;
     const articleFilter =
       categoryId !== undefined ? `category[equals]${categoryId}` : undefined;
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {
       const result = await $microcms.get({
@@ -166,7 +167,6 @@ export default defineComponent({
           : undefined;
       selectedCategory.value = myCategory;
     });
-
     return {
       data,
       selectedCategory,
