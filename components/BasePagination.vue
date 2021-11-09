@@ -17,7 +17,7 @@
           :to="getPath(current - 1)"
           class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
-          <font-awesome-icon :icon="['fas', 'chevron-left']" />
+          <BaseIcon width="18px" height="18px"><IconLeftArrow /></BaseIcon>
         </nuxt-link>
       </li>
       <li v-if="3 < current" class="w-[32px] h-[32px] rounded-[100%] m-[4px]">
@@ -74,7 +74,7 @@
           :to="getPath(current + 1)"
           class="flex items-center justify-center h-full  text-warmGray-700 hover:text-warmGray-500 dark:hover:text-warmGray-400 dark:text-warmGray-200"
         >
-          <font-awesome-icon :icon="['fas', 'chevron-right']" />
+          <BaseIcon width="18px" height="18px"><IconRightArrow /></BaseIcon>
         </nuxt-link>
       </li>
     </ul>
@@ -83,9 +83,15 @@
 
 <script>
 import { defineComponent } from '@nuxtjs/composition-api';
+import IconLeftArrow from './icons/IconLeftArrow.vue';
+import IconRightArrow from './icons/IconRightArrow.vue';
 
 export default defineComponent({
   name: 'BasePagination',
+  components: {
+    IconLeftArrow,
+    IconRightArrow,
+  },
   props: {
     pager: {
       type: [Array, String],
@@ -102,7 +108,6 @@ export default defineComponent({
       default: undefined,
     },
   },
-
   setup(props) {
     const getPath = (p) => {
       if (props.category) {
@@ -111,7 +116,6 @@ export default defineComponent({
         return `/page/${p}`;
       }
     };
-
     const activeOuterClass = (p) => {
       return props.current === p + 1
         ? 'bg-warmGray-600 dark:bg-warmGray-200 '
@@ -122,7 +126,6 @@ export default defineComponent({
         ? 'text-warmGray-200 hover:text-warmGray-200 dark:text-warmGray-700 dark:hover:text-warmGray-600'
         : '';
     };
-
     return {
       getPath,
       activeOuterClass,
