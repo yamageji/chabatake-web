@@ -61,8 +61,8 @@
               class="
                 w-[14px]
                 h-[14px]
-                mr-[3px]
-                md:w-[16px] md:h-[16px] md:mr-[6px]
+                mr-[2px]
+                md:w-[16px] md:h-[16px] md:mr-[2px]
               "
               ><IconCalendar
             /></BaseIcon>
@@ -76,8 +76,8 @@
               class="
                 w-[14px]
                 h-[14px]
-                mr-[3px]
-                md:w-[16px] md:h-[16px] md:mr-[6px]
+                mr-[2px]
+                md:w-[16px] md:h-[16px] md:mr-[4px]
               "
               ><IconUpdate
             /></BaseIcon>
