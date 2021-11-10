@@ -79,7 +79,11 @@
                   "
                 >
                   <time>
-                    <BaseIcon :icon-name="'clock'" withd="16" height="16"
+                    <BaseIcon
+                      :icon-name="'clock'"
+                      withd="16"
+                      height="16"
+                      class="w-[13px] h-[13px] md:w-[16px] md:h-[16px]"
                       ><IconClock
                     /></BaseIcon>
                     {{ content.date | formatDate }}

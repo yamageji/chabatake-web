@@ -53,10 +53,36 @@
             dark:text-warmGray-200
           "
         >
-          <span v-if="date" class="mr-[20px]">
-            公開：{{ date | formatDate }}</span
+          <span v-if="date" class="mr-[20px] md:mr-[26px]">
+            <BaseIcon
+              :icon-name="calendar"
+              width="16"
+              height="16"
+              class="
+                w-[14px]
+                h-[14px]
+                mr-[2px]
+                md:w-[16px] md:h-[16px] md:mr-[4px]
+              "
+              ><IconCalendar
+            /></BaseIcon>
+            {{ date | formatDate }} 公開</span
           >
-          <span v-if="updatedAt">更新：{{ updatedAt | formatDate }}</span>
+          <span v-if="updatedAt">
+            <BaseIcon
+              :icon-name="calendar"
+              width="16"
+              height="16"
+              class="
+                w-[14px]
+                h-[14px]
+                mr-[2px]
+                md:w-[16px] md:h-[16px] md:mr-[4px]
+              "
+              ><IconUpdate
+            /></BaseIcon>
+            {{ updatedAt | formatDate }} 更新</span
+          >
         </p>
       </div>
     </div>
@@ -85,8 +111,14 @@
 <script>
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
+import IconCalendar from '~/components/icons/IconCalendar.vue';
+import IconUpdate from '~/components/icons/IconUpdate.vue';
 
 export default {
+  components: {
+    IconCalendar,
+    IconUpdate,
+  },
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({
       endpoint: `blog/${params.slug}`,
@@ -112,7 +144,6 @@ export default {
       tableOfContent,
     };
   },
-
   head() {
     return {
       title: this.title,
@@ -139,7 +170,6 @@ export default {
           content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
         },
         { name: 'twitter:card', content: 'summary' },
-
         { hid: 'og:type', property: 'og:type', content: 'article' },
       ],
     };
