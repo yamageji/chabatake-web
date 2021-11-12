@@ -66,7 +66,7 @@
               "
               ><IconCalendar
             /></BaseIcon>
-            {{ date | formatDate }} 公開</span
+            {{ publishedAt | formatDate }} 公開</span
           >
           <span v-if="updatedAt">
             <BaseIcon
@@ -124,16 +124,12 @@ export default {
     return {
       data: {
         id: '',
-        ogimage: {
-          url: '',
-        },
         body: '',
         title: '',
-        createdAt: '',
         publishedAt: '',
+        updatedAt: '',
       },
       tableOfContent: [],
-      contents: [],
     };
   },
 
