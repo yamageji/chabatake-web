@@ -2,10 +2,8 @@ import { client } from './utils/microcms';
 const { API_KEY, SERVICE_DOMAIN } = process.env;
 
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'chabatake WEB',
     htmlAttrs: {
@@ -50,7 +48,6 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     {
       src: '~/node_modules/highlight.js/styles/github.css',
@@ -58,18 +55,13 @@ export default {
     },
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/filter.js', '~plugins/vue-scrollto'],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/composition-api/module',
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     'nuxt-microcms-module',
     [
@@ -80,12 +72,12 @@ export default {
     ],
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    'nuxt-webfontloader',
-  ],
+  modules: ['@nuxtjs/axios', 'nuxt-webfontloader', '@nuxtjs/proxy'],
+
+  // 開発時のプレビュー用
+  proxy: {
+    '/.netlify': 'http://localhost:9000',
+  },
 
   // google font
   webfontloader: {
@@ -94,10 +86,8 @@ export default {
     },
   },
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   // microcmsの設定
