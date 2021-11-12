@@ -131,33 +131,9 @@ export default {
         title: '',
         createdAt: '',
         publishedAt: '',
-        tableOfContent_visible: false,
-        writer: {
-          id: '',
-          name: '',
-          image: {
-            url: '',
-          },
-          text: '',
-        },
-        partner: {
-          id: '',
-          company: '',
-          url: '',
-          description: '',
-          logo: {
-            url: '',
-          },
-        },
-        category: {
-          name: '',
-          color: '',
-        },
-        related_blogs: [],
       },
       tableOfContent: [],
       contents: [],
-      categories: [],
     };
   },
 
@@ -183,24 +159,12 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.microcms.io/${this.data && this.data.id}`,
+          content: `https://www.chabatake-web.com${this.data && this.data.id}`,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.data && this.data.ogimage && this.data.ogimage.url,
-        },
-      ],
-      link: [
-        {
-          rel: 'stylesheet',
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css',
-        },
-      ],
-      script: [
-        {
-          src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js',
-          async: true,
+          content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
         },
       ],
     };
