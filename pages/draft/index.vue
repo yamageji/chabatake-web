@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-layout grid-rows-layout">
-    <div class="col-span-2 mb-[32px] md:mb-[48px]">
+    <div class="col-span-2 mb-[56px] md:mb-[80px]">
       <div
         class="
           flex flex-col
@@ -98,7 +98,7 @@
         col-span-2
         mdlg:col-span-1
         mt-[56px]
-        mdlg:mt-[48px] mdlg:ml-[24px]
+        mdlg:mt-[0px] mdlg:ml-[24px]
       "
     >
       <div class="mdlg:sticky mdlg:top-[24px]">
@@ -307,6 +307,10 @@ export default {
       margin: 8px 0 8px;
       padding: 8px 12px;
     }
+  }
+
+  &:first-child {
+    margin-top: 0;
   }
 }
 
