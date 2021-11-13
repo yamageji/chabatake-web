@@ -206,3 +206,150 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.post ::v-deep {
+  --text-color: #292524;
+  --text-sub-color: #78716c;
+  --code-bg-color: #e5e5e5;
+  --thema-color: #10b981;
+
+  --text-color-dark: #e5e5e5;
+  --text-sub-color-dark: #d4d4d4;
+  --code-bg-color-dark: #57534e;
+  --thema-color-dark: #34d399;
+
+  font-family: 'Noto Sans JP', 'sans-serif';
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.9;
+
+  & > h1 {
+    position: relative;
+    margin: 32px 0 8px;
+    padding-left: 16px;
+    font-size: 26px;
+    line-height: 1.7;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px;
+      width: 6px;
+      height: 100%;
+      background: var(--thema-color);
+    }
+  }
+
+  & > h2 {
+    margin: 28px 0 8px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-sub-color);
+    font-size: 22px;
+    line-height: 1.7;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  & > h3 {
+    margin: 18px 0 0;
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  & > p {
+    letter-spacing: 0.01em;
+
+    & > strong {
+      font-weight: bold;
+    }
+  }
+
+  & > ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 16px;
+  }
+
+  & > ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    padding-left: 16px;
+  }
+
+  & a {
+    text-decoration: underline;
+    text-underline-position: under;
+    color: var(--thema-color);
+    &:visited {
+      color: var(--thema-color);
+    }
+  }
+
+  & code {
+    padding: 0.2em 0.4em;
+    background-color: var(--code-bg-color);
+    font-size: 0.85em;
+    border-radius: 4px;
+    vertical-align: 0.08em;
+    &.hljs {
+      margin: 8px 0 8px;
+      padding: 8px 12px;
+    }
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .post ::v-deep {
+    & > h1 {
+      margin: 40px 0 16px;
+      padding-left: 20px;
+      font-size: 28px;
+    }
+    & > h2 {
+      margin: 32px 0 16px;
+      padding-bottom: 4px;
+      font-size: 24px;
+    }
+    & > h3 {
+      margin: 24px 0 0;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .post ::v-deep {
+    color: var(--text-color-dark);
+
+    & > h1 {
+      &:before {
+        background: var(--thema-color-dark);
+      }
+    }
+
+    & > h2 {
+      border-bottom: 1px solid var(--text-sub-color-dark);
+    }
+
+    & a {
+      text-underline-position: under;
+      color: var(--thema-color-dark);
+      &:visited {
+        color: var(--thema-color-dark);
+      }
+    }
+
+    & code {
+      background-color: var(--code-bg-color-dark);
+    }
+  }
+}
+</style>
