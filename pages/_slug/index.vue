@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-layout grid-rows-layout">
-    <div class="col-span-2">
+    <div class="col-span-2 mb-[32px] md:mb-[48px]">
       <div
         class="
           flex flex-col
@@ -87,14 +87,21 @@
       </div>
     </div>
 
-    <div class="col-span-2 md:col-span-1 mt-[16px] mdlg:mt-[40px]">
+    <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="body"></main>
     </div>
 
     <div
-      class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[64px] mdlg:ml-[24px]"
+      class="
+        sticky
+        top-0
+        col-span-2
+        mdlg:col-span-1
+        mt-[56px]
+        mdlg:mt-[48px] mdlg:ml-[24px]
+      "
     >
-      <div class="mdlg:sticky mdlg:top-[40px]">
+      <div class="mdlg:sticky mdlg:top-[24px]">
         <LayoutTbleOfContent
           :table-of-content="tableOfContent"
           class="hidden mdlg:block"
