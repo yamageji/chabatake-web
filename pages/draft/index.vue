@@ -12,8 +12,8 @@
           md:px-[24px] md:mt-[12px]
         "
       >
-        <picture v-if="pictogram">
-          <img :src="pictogram.url" width="120px" hight="120px" />
+        <picture v-if="data.pictogram">
+          <img :src="data.pictogram.url" width="120px" hight="120px" />
         </picture>
         <h1
           class="
@@ -25,7 +25,7 @@
             dark:text-warmGray-200
           "
         >
-          {{ title }}
+          {{ data.title }}
         </h1>
       </div>
 
@@ -53,7 +53,7 @@
             dark:text-warmGray-200
           "
         >
-          <span v-if="date" class="mr-[20px] md:mr-[26px]">
+          <span v-if="data.publishedAt" class="mr-[20px] md:mr-[26px]">
             <BaseIcon
               :icon-name="calendar"
               width="16"
@@ -68,7 +68,7 @@
             /></BaseIcon>
             {{ publishedAt | formatDate }} 公開</span
           >
-          <span v-if="updatedAt">
+          <span v-if="data.updatedAt">
             <BaseIcon
               :icon-name="calendar"
               width="16"
@@ -89,7 +89,7 @@
 
     <div class="col-span-2 md:col-span-1 mt-[16px]">
       <main class="col-span-2 md:col-span-1 mt-[16px]">
-        <div class="post" v-html="body"></div>
+        <div class="post" v-html="data.body"></div>
       </main>
     </div>
 
@@ -124,8 +124,10 @@ export default {
     return {
       data: {
         id: '',
-        body: '',
         title: '',
+        body: '',
+        category: '',
+        pictogram: '',
         publishedAt: '',
         updatedAt: '',
       },
