@@ -55,7 +55,7 @@
         >
           <span v-if="data.publishedAt" class="mr-[20px] md:mr-[26px]">
             <BaseIcon
-              :icon-name="calendar"
+              :icon-name="'calendar'"
               width="16"
               height="16"
               class="
@@ -70,7 +70,7 @@
           >
           <span v-if="data.updatedAt">
             <BaseIcon
-              :icon-name="calendar"
+              :icon-name="'update'"
               width="16"
               height="16"
               class="
@@ -87,10 +87,8 @@
       </div>
     </div>
 
-    <div class="col-span-2 md:col-span-1 mt-[16px]">
-      <main class="col-span-2 md:col-span-1 mt-[16px]">
-        <div class="post" v-html="data.body"></div>
-      </main>
+    <div class="col-span-2 md:col-span-1 mt-[16px] mdlg:mt-[40px]">
+      <main class="post" v-html="body"></main>
     </div>
 
     <div
