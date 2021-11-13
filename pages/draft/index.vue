@@ -88,7 +88,7 @@
     </div>
 
     <div class="col-span-2 md:col-span-1 mt-[16px] mdlg:mt-[40px]">
-      <main class="post" v-html="body"></main>
+      <main class="post" v-html="data.body"></main>
     </div>
 
     <div
