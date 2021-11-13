@@ -66,7 +66,7 @@
               "
               ><IconCalendar
             /></BaseIcon>
-            {{ publishedAt | formatDate }} 公開</span
+            {{ data.publishedAt | formatDate }} 公開</span
           >
           <span v-if="data.updatedAt">
             <BaseIcon
@@ -81,7 +81,7 @@
               "
               ><IconUpdate
             /></BaseIcon>
-            {{ updatedAt | formatDate }} 更新</span
+            {{ data.updatedAt | formatDate }} 更新</span
           >
         </p>
       </div>
