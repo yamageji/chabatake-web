@@ -109,6 +109,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
