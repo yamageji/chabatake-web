@@ -281,8 +281,8 @@ export default {
 
   & blockquote {
     margin: 16px 0;
-    padding-left: 8px;
-    border-left: solid 8px var(--code-bg-color);
+    padding-left: 12px;
+    border-left: solid 6px var(--code-bg-color);
   }
 
   &:first-child {
