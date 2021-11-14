@@ -279,6 +279,11 @@ export default {
     }
   }
 
+  & blockquote {
+    padding-left: 4px;
+    border-left: solid 2px var(--code-bg-color);
+  }
+
   &:first-child {
     margin-top: 0;
   }
