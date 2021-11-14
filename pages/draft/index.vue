@@ -310,8 +310,9 @@ export default {
   }
 
   & blockquote {
-    padding-left: 4px;
-    border-left: solid 2px var(--code-bg-color);
+    margin: 16px 0;
+    padding-left: 8px;
+    border-left: solid 8px var(--code-bg-color);
   }
 
   &:first-child {
@@ -321,6 +322,8 @@ export default {
 
 @media screen and(min-width: 768px) {
   .post ::v-deep {
+    font-size: 16px;
+    line-height: 2.1;
     & > h1 {
       margin: 40px 0 16px;
       padding-left: 20px;
