@@ -87,7 +87,7 @@
       </div>
     </div>
 
-    <div class="col-span-2 md:col-span-1">
+    <div class="col-span-2 md:col-span-1 max-w-[656px]">
       <main class="post" v-html="data.body"></main>
     </div>
 
@@ -231,7 +231,7 @@ export default {
 
   & > h1 {
     position: relative;
-    margin: 32px 0 8px;
+    margin: 40px 0 8px;
     padding-left: 16px;
     font-size: 26px;
     line-height: 1.7;
@@ -325,7 +325,7 @@ export default {
     font-size: 16px;
     line-height: 2.1;
     & > h1 {
-      margin: 40px 0 16px;
+      margin: 48px 0 16px;
       padding-left: 20px;
       font-size: 28px;
     }
