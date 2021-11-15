@@ -87,7 +87,7 @@
       </div>
     </div>
 
-    <div class="col-span-2 md:col-span-1 max-w-[656px]">
+    <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="data.body"></main>
     </div>
 
@@ -224,6 +224,7 @@ export default {
   --code-bg-color-dark: #57534e;
   --thema-color-dark: #34d399;
 
+  width: 100%;
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
   font-size: 16px;
@@ -295,6 +296,10 @@ export default {
     &:visited {
       color: var(--thema-color);
     }
+  }
+
+  & pre {
+    width: 100%;
   }
 
   & code {
