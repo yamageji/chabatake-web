@@ -224,7 +224,6 @@ export default {
   --code-bg-color-dark: #57534e;
   --thema-color-dark: #34d399;
 
-  min-width: 0;
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
   font-size: 16px;

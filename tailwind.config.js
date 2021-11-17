@@ -29,7 +29,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         // base layout
-        layout: '1fr auto',
+        layout: 'minmax(0px, 1fr) auto',
       },
       backgroundImage: {
         'hero-pattern': "url('@/assets/image/chabatake.png')",
