@@ -267,11 +267,6 @@ export default {
     }
   }
 
-  & pre {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
   & code {
     padding: 0.2em 0.4em;
     background-color: var(--code-bg-color);
@@ -281,6 +276,14 @@ export default {
     &.hljs {
       margin: 8px 0 8px;
       padding: 8px 12px;
+    }
+  }
+
+  & pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    & code {
+      background-color: var(--code-bg-color);
     }
   }
 
