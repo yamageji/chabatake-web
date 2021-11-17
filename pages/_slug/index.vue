@@ -198,7 +198,9 @@ export default {
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.9;
-  overflow-wrap: break-word;
+  &:not(pre) {
+    overflow-wrap: break-word;
+  }
 
   & > h1 {
     position: relative;
