@@ -299,7 +299,8 @@ export default {
   }
 
   & pre {
-    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   & code {
