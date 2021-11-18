@@ -198,9 +198,7 @@ export default {
   color: var(--text-color);
   font-size: 16px;
   line-height: 1.9;
-  &:not(pre) {
-    overflow-wrap: break-word;
-  }
+  overflow-wrap: break-word;
 
   & > h1 {
     position: relative;
@@ -283,6 +281,7 @@ export default {
   }
 
   & pre {
+    overflow-wrap: normal;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     & code {
