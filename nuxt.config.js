@@ -50,7 +50,7 @@ export default {
 
   css: [
     {
-      src: '~/node_modules/highlight.js/styles/github.css',
+      src: '~/node_modules/highlight.js/styles/hybrid.css',
       lang: 'css',
     },
   ],

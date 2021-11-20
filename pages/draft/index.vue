@@ -298,27 +298,35 @@ export default {
     }
   }
 
-  & pre {
-    overflow-wrap: normal;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  & code {
+  & p > code {
     padding: 0.2em 0.4em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
     background-color: var(--code-bg-color);
     font-size: 0.85em;
     border-radius: 4px;
     vertical-align: 0.08em;
-    &.hljs {
-      margin: 8px 0 8px;
-      padding: 8px 12px;
+  }
+
+  & pre {
+    margin: 12px 0;
+    font-size: 0.85em;
+    line-height: 1.7;
+    border-radius: 4px;
+
+    overflow-wrap: normal;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    & code {
+      background-color: var(--code-bg-color);
     }
   }
 
   & blockquote {
     margin: 16px 0;
     padding-left: 12px;
+    color: var(--text-sub-color);
     border-left: solid 6px var(--code-bg-color);
   }
 
@@ -371,8 +379,12 @@ export default {
       }
     }
 
-    & code {
+    & p > code {
       background-color: var(--code-bg-color-dark);
+    }
+
+    & blockquote {
+      color: var(--text-sub-color-dark);
     }
   }
 }
