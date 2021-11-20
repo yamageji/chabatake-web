@@ -89,6 +89,9 @@
 
     <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="body"></main>
+      <div class="mt-[40px] text-center text-warmGray-700">
+        <BaseSnsShareButton :text="title" />
+      </div>
     </div>
 
     <div
@@ -118,11 +121,13 @@ import cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
 import IconUpdate from '~/components/icons/IconUpdate.vue';
+import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 
 export default {
   components: {
     IconCalendar,
     IconUpdate,
+    BaseSnsShareButton,
   },
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({
