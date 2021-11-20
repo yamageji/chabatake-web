@@ -268,7 +268,8 @@ export default {
     }
   }
 
-  & p > code {
+  & p > code,
+  li > code {
     padding: 0.2em 0.4em;
     margin-left: 0.1em;
     margin-right: 0.1em;
