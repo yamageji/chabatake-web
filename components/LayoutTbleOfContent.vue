@@ -9,7 +9,7 @@
         bg-warmGray-100
         rounded-[12px]
         shadow-sm
-        dark:bg-warmGray-700
+        dark:bg-warmGray-900
       "
     >
       <h2
@@ -19,7 +19,7 @@
           font-bold
           text-[18px] text-emerald-500
           border-b-[1px] border-emerald-500
-          dark:text-emerald-400 dark:border-emerald-400
+          dark:text-emerald-300 dark:border-emerald-300
         "
       >
         目次

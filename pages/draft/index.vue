@@ -89,6 +89,16 @@
 
     <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="data.body"></main>
+      <div
+        class="
+          mt-[40px]
+          text-center text-warmGray-700
+          mdlg:mt-[52px]
+          dark:text-warmGray-200
+        "
+      >
+        <BaseSnsShareButton :text="title" />
+      </div>
     </div>
 
     <div
@@ -97,8 +107,8 @@
         top-0
         col-span-2
         mdlg:col-span-1
-        mt-[56px]
-        mdlg:mt-[0px] mdlg:ml-[24px]
+        mt-[20px]
+        mdlg:mt-[0px] mdlg:ml-[32px]
       "
     >
       <div class="mdlg:sticky mdlg:top-[24px]">
@@ -107,7 +117,9 @@
           class="hidden mdlg:block"
         />
 
-        <LayoutProfile class="mt-[40px] mdlg:w-[280px] mdlg:pl-[4px]" />
+        <LayoutProfile
+          class="mt-[48px] mdlg:w-[280px] mdlg:pl-[4px] mdlg:mt-[40px]"
+        />
       </div>
     </div>
   </div>
@@ -224,7 +236,7 @@ export default {
   --text-sub-color-dark: #d4d4d4;
   --code-bg-color-dark: #44403c;
   --pre-bg-color-dark: #1c1917;
-  --thema-color-dark: #34d399;
+  --thema-color-dark: #6ee7b7;
 
   font-family: 'Noto Sans JP', 'sans-serif';
   color: var(--text-color);
@@ -329,7 +341,7 @@ export default {
     margin: 16px 0;
     padding-left: 12px;
     color: var(--text-sub-color);
-    border-left: solid 6px var(--code-bg-color);
+    border-left: solid 5px var(--text-sub-color);
   }
 
   &:first-child {
@@ -391,6 +403,7 @@ export default {
 
     & blockquote {
       color: var(--text-sub-color-dark);
+      border-left: solid 5px var(--text-sub-color-dark);
     }
   }
 }
