@@ -186,12 +186,14 @@ export default {
 .post ::v-deep {
   --text-color: #292524;
   --text-sub-color: #78716c;
-  --code-bg-color: #e5e5e5;
+  --code-bg-color: #e7e5e4;
+  --pre-bg-color: #292524;
   --thema-color: #10b981;
 
-  --text-color-dark: #e5e5e5;
+  --text-color-dark: #e7e5e4;
   --text-sub-color-dark: #d4d4d4;
-  --code-bg-color-dark: #57534e;
+  --code-bg-color-dark: #44403c;
+  --pre-bg-color-dark: #1c1917;
   --thema-color-dark: #34d399;
 
   font-family: 'Noto Sans JP', 'sans-serif';
@@ -268,8 +270,7 @@ export default {
     }
   }
 
-  & p > code,
-  li > code {
+  & code {
     padding: 0.2em 0.4em;
     margin-left: 0.1em;
     margin-right: 0.1em;
@@ -281,13 +282,17 @@ export default {
 
   & pre {
     margin: 12px 0;
-    font-size: 0.85em;
-    line-height: 1.7;
+    line-height: 1.8;
     border-radius: 4px;
 
     overflow-wrap: normal;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  & pre > code {
+    padding: 12px;
+    background-color: var(--pre-bg-color);
   }
 
   & blockquote {
@@ -346,8 +351,12 @@ export default {
       }
     }
 
-    & p > code {
+    & code {
       background-color: var(--code-bg-color-dark);
+    }
+
+    & pre > code {
+      background-color: var(--pre-bg-color-dark);
     }
 
     & blockquote {
