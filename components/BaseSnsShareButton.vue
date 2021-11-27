@@ -4,19 +4,22 @@
     <div
       class="
         flex
-        gap-[16px]
+        gap-[12px]
         items-center
         justify-center
-        w-[112px]
-        mx-auto
         py-[8px]
         font-bold
         text-[17px] text-center
-        border-b-[1px] border-warmGray-400
-        dark:border-warmGray-200
       "
     >
-      share
+      <span
+        class="
+          pr-[12px]
+          border-r-[1px] border-warmGray-400
+          dark:border-warmGray-200
+        "
+        >share</span
+      >
       <button type="button" class="">
         <a :href="twitterURL" target="_blank" rel="noopener">
           <span
