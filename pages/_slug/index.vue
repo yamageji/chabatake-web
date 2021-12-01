@@ -128,9 +128,9 @@
 <script>
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
+import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
 import IconUpdate from '~/components/icons/IconUpdate.vue';
-import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 
 export default {
   components: {
@@ -145,7 +145,7 @@ export default {
     // HTMLパーサーで目次とコードのシンタックスハイライト
     const $ = cheerio.load(data.body);
     // 目次用に見出しの抜き出
-    const headings = $('h1, h2, h3').toArray();
+    const headings = $('h1, h2').toArray();
     const tableOfContent = headings.map((data) => ({
       text: data.children[0].data,
       id: data.attribs.id,
