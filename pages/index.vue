@@ -12,6 +12,7 @@
         rounded-[4px]
         sm:rounded-[8px]
         md:rounded-[12px]
+        dark:bg-hero-pattern-dark dark:border-warmGray-100
       "
     ></div>
 
@@ -127,11 +128,11 @@
 
 <script>
 import {
+  computed,
   defineComponent,
   ref,
-  useFetch,
   useContext,
-  computed,
+  useFetch,
 } from '@nuxtjs/composition-api';
 import IconClock from '~/components/icons/IconClock.vue';
 

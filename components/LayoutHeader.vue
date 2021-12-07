@@ -22,8 +22,7 @@
               transition-text
               duration-200
               ease-in-out
-              hover:text-warmGray-600
-              dark:text-warmGray-200 dark:hover:text-warmGray-400
+              dark:text-warmGray-200
             "
           >
             <use

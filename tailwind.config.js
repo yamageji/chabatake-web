@@ -32,7 +32,8 @@ module.exports = {
         layout: 'minmax(0px, 1fr) auto',
       },
       backgroundImage: {
-        'hero-pattern': "url('@/assets/image/chabatake.png')",
+        'hero-pattern': "url('@/assets/image/chabatake_image.svg')",
+        'hero-pattern-dark': "url('@/assets/image/chabatake_image_dark.svg')",
       },
     },
   },
