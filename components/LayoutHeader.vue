@@ -16,6 +16,7 @@
           <svg
             class="
               w-[200px]
+              h-[60px]
               md:w-[240px]
               fill-current
               text-warmGray-800
