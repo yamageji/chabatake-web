@@ -53,7 +53,11 @@
                   dark:bg-warmGray-300
                 "
               >
-                <picture v-if="content.pictogram" class="w-[80%] h-[80%]">
+                <picture
+                  v-if="content.pictogram"
+                  class="w-[80%] h-[80%]"
+                  aria-hidden="true"
+                >
                   <img :src="content.pictogram.url" />
                 </picture>
               </div>

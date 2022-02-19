@@ -12,7 +12,7 @@
           md:px-[24px] md:mt-[12px]
         "
       >
-        <picture v-if="pictogram">
+        <picture v-if="pictogram" aria-hidden="true">
           <img :src="pictogram.url" width="120px" hight="120px" />
         </picture>
         <h1
