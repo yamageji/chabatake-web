@@ -59,7 +59,7 @@
               </div>
 
               <div claa="flex-grow">
-                <h1
+                <h2
                   class="
                     text-[18px]
                     font-noto font-bold
@@ -69,7 +69,7 @@
                   "
                 >
                   {{ content.title }}
-                </h1>
+                </h2>
                 <div
                   class="
                     text-[13px]

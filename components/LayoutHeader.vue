@@ -14,6 +14,8 @@
       <h1>
         <a href="/page/1">
           <svg
+            role="img"
+            aria-label="chabatake WEB"
             class="
               w-[200px]
               h-[60px]
