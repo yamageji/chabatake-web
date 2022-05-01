@@ -7,3 +7,9 @@ Vue.filter('formatDate', (value) => {
   const valueDate = DateTime.fromISO(value);
   return valueDate.toFormat('yyyy.MM.dd');
 });
+
+Vue.filter('formatDateTime', (value) => {
+  // APIの日付
+  const valueDate = DateTime.fromISO(value);
+  return valueDate.toFormat('yyyy-MM-dd');
+});

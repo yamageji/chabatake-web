@@ -44,7 +44,7 @@
                     class="w-[13px] h-[13px] md:w-[15px] md:h-[15px]"
                     ><IconClock
                   /></BaseIcon>
-                  <time>
+                  <time :datetime="content.date | formatDateTime">
                     {{ content.date | formatDate }}
                   </time>
                 </div>
