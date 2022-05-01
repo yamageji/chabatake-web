@@ -11,9 +11,9 @@
         :key="content.id"
         class="border-t-[1px] border-warmGray-400 dark:border-warmGray-600"
       >
-        <nuxt-link :to="`/${content.id}`">
-          <div class="py-[6px] md:py-[8px]">
-            <li
+        <li class="py-[6px] md:py-[8px]">
+          <nuxt-link :to="`/${content.id}`">
+            <div
               class="flex items-center gap-[12px] p-[6px] hover:bg-warmGray-200 rounded-[4px] transition-bg duration-200 ease-in-out md:gap-[14px] md:p-[10px] dark:hover:bg-warmGray-700"
             >
               <div
@@ -54,9 +54,9 @@
                   class="mt-[6px] md:mt-[10px]"
                 />
               </div>
-            </li>
-          </div>
-        </nuxt-link>
+            </div>
+          </nuxt-link>
+        </li>
       </ul>
 
       <!-- ページネーション -->
