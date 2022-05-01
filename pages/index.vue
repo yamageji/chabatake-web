@@ -28,7 +28,7 @@
                 </picture>
               </div>
 
-              <div claa="flex-grow">
+              <div class="flex-grow">
                 <h2
                   class="text-[18px] font-noto font-bold text-warmGray-700 md:text-[22px] dark:text-warmGray-200"
                 >
@@ -37,14 +37,14 @@
                 <div
                   class="text-[13px] font-noto text-warmGray-700 md:text-[15px] md:mt-[2px] dark:text-warmGray-200"
                 >
+                  <BaseIcon
+                    :icon-name="'clock'"
+                    width="15"
+                    height="15"
+                    class="w-[13px] h-[13px] md:w-[15px] md:h-[15px]"
+                    ><IconClock
+                  /></BaseIcon>
                   <time>
-                    <BaseIcon
-                      :icon-name="'clock'"
-                      withd="16"
-                      height="16"
-                      class="w-[13px] h-[13px] md:w-[16px] md:h-[16px]"
-                      ><IconClock
-                    /></BaseIcon>
                     {{ content.date | formatDate }}
                   </time>
                 </div>
