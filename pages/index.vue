@@ -7,7 +7,7 @@
     <div class="col-span-2 md:col-span-1 mt-[16px]">
       <LayoutNavigation />
       <ul
-        v-for="content in data"
+        v-for="(content, index) in data"
         :key="content.id"
         class="border-t-[1px] border-warmGray-400 dark:border-warmGray-600"
       >
@@ -36,6 +36,7 @@
                   class="text-[13px] font-noto text-warmGray-700 md:text-[15px] md:mt-[2px] dark:text-warmGray-200"
                 >
                   <BaseIcon
+                    :icon-id="index"
                     :icon-name="'clock'"
                     width="15"
                     height="15"
@@ -83,7 +84,6 @@ import {
   useMeta,
 } from '@nuxtjs/composition-api';
 import BasePictogram from '~/components/BasePictogram.vue';
-// import { computed } from 'vue';
 import IconClock from '~/components/icons/IconClock.vue';
 
 export default defineComponent({
@@ -109,6 +109,7 @@ export default defineComponent({
         return 'chabatake WEB';
       }
     });
+
     useMeta({ title: pageTitle });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     useFetch(async ({ $microcms }) => {

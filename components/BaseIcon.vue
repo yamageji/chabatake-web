@@ -9,7 +9,7 @@
     :aria-labelledby="iconName"
     role="presentation"
   >
-    <title :id="iconName" lang="ja">{{ iconName }} icon</title>
+    <title :id="computedIconId" lang="ja">{{ iconName }} icon</title>
     <g :fill="iconColor">
       <slot />
     </g>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api';
+import { computed, defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
   name: 'BaseIcon',
@@ -26,6 +26,7 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    iconId: Number,
     width: {
       type: [Number, String],
       default: 20,
@@ -38,6 +39,16 @@ export default defineComponent({
       type: String,
       default: 'currentColor',
     },
+  },
+  setup(props) {
+    const computedIconId = computed((): string => {
+      return props.iconId
+        ? `${props.iconName}_${props.iconId}`
+        : `${props.iconName}`;
+    });
+    return {
+      computedIconId,
+    };
   },
 });
 </script>
