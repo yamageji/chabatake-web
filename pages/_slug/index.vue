@@ -4,9 +4,11 @@
       <div
         class="flex flex-col items-center justify-center w-full px-[12px] mt-[8px] md:px-[24px] md:mt-[12px]"
       >
-        <picture v-if="pictogram" aria-hidden="true">
-          <img :src="pictogram.url" width="120px" hight="120px" />
-        </picture>
+        <BasePictogram
+          :pictogram="pictogram"
+          class="text-warmGray-600 w-[100px] h-[100px] md:w-[120px] md:h-[120px] dark:text-warmGray-300"
+        >
+        </BasePictogram>
         <h1
           class="max-w-[680px] mt-[8px] font-noto font-bold text-[28px] text-warmGray-700 md:mt-[16px] md:text-[34px] dark:text-warmGray-200"
         >
@@ -78,6 +80,7 @@
 <script>
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
+import BasePictogram from '~/components/BasePictogram.vue';
 import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
 import IconUpdate from '~/components/icons/IconUpdate.vue';
@@ -87,6 +90,7 @@ export default {
     IconCalendar,
     IconUpdate,
     BaseSnsShareButton,
+    BasePictogram,
   },
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({

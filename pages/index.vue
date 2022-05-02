@@ -17,15 +17,13 @@
               class="flex items-center gap-[12px] p-[6px] hover:bg-warmGray-200 rounded-[4px] transition-bg duration-200 ease-in-out md:gap-[14px] md:p-[10px] dark:hover:bg-warmGray-700"
             >
               <div
-                class="flex-none flex items-center justify-center h-[80px] w-[80px] bg-warmGray-200 rounded-[8px] md:h-[100px] md:w-[100px] dark:bg-warmGray-300"
+                class="flex-none flex items-center justify-center h-[80px] w-[80px] bg-warmGray-200 rounded-[8px] md:h-[100px] md:w-[100px] dark:bg-warmGray-700"
               >
-                <picture
-                  v-if="content.pictogram"
-                  class="w-[80%] h-[80%]"
-                  aria-hidden="true"
+                <BasePictogram
+                  :pictogram="content.pictogram"
+                  class="text-warmGray-600 w-[60px] md:w-[72px] md:h-[72px] h-[60px] dark:text-warmGray-300"
                 >
-                  <img :src="content.pictogram.url" />
-                </picture>
+                </BasePictogram>
               </div>
 
               <div class="flex-grow">
@@ -48,7 +46,7 @@
                     {{ content.date | formatDate }}
                   </time>
                 </div>
-                <CategoryLabel
+                <BaseCategoryLabel
                   v-if="content.category"
                   :category="content.category"
                   class="mt-[6px] md:mt-[10px]"
@@ -84,11 +82,12 @@ import {
   useFetch,
   useMeta,
 } from '@nuxtjs/composition-api';
+import BasePictogram from '~/components/BasePictogram.vue';
 // import { computed } from 'vue';
 import IconClock from '~/components/icons/IconClock.vue';
 
 export default defineComponent({
-  components: { IconClock },
+  components: { IconClock, BasePictogram },
   setup() {
     const data = ref('');
     const selectedCategory = ref('');
