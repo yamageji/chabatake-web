@@ -1,0 +1,20 @@
+<template>
+  <g>
+    <rect class="cls-2" x="17.01" y="65.2" width="62.36" height="5.67" /><rect
+      class="cls-2"
+      x="48.19"
+      y="79.37"
+      width="48.19"
+      height="5.67"
+    /><rect
+      class="cls-2"
+      x="34.02"
+      y="93.54"
+      width="36.85"
+      height="5.67"
+    /><path
+      class="cls-2"
+      d="M90.71,45.35A34,34,0,1,0,24.62,56.69H88.77A34,34,0,0,0,90.71,45.35Z"
+    />
+  </g>
+</template>

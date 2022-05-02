@@ -20,7 +20,7 @@
                 class="flex-none flex items-center justify-center h-[80px] w-[80px] bg-warmGray-200 rounded-[8px] md:h-[100px] md:w-[100px] dark:bg-warmGray-700"
               >
                 <BasePictogram
-                  :pictogram="'shimanto-gawa'"
+                  :pictogram="content.pictogram"
                   class="text-warmGray-600 w-[60px] md:w-[72px] md:h-[72px] h-[60px] dark:text-warmGray-300"
                 >
                 </BasePictogram>
@@ -46,7 +46,7 @@
                     {{ content.date | formatDate }}
                   </time>
                 </div>
-                <CategoryLabel
+                <BaseCategoryLabel
                   v-if="content.category"
                   :category="content.category"
                   class="mt-[6px] md:mt-[10px]"
