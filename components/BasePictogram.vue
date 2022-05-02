@@ -29,11 +29,16 @@ export default defineComponent({
       default: 113.39,
     },
   },
+  computed: {
+    iconName(): string {
+      return this.pictogram;
+    },
+  },
 });
 </script>
 
 <template>
-  <BasePictoFrame :width="width" :height="height">
+  <BasePictoFrame :width="width" :height="height" :icon-name="iconName">
     <PictoShimantoGawa v-if="pictogram === 'shimanto-gawa'" />
     <PictoTaiyaki v-else-if="pictogram === 'taiyaki'" />
     <PictoHinode v-else-if="pictogram === 'hinode'" />
