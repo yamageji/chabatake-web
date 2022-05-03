@@ -97,7 +97,7 @@ export default {
       endpoint: `blog/${params.slug}`,
     });
     // HTMLパーサーで目次とコードのシンタックスハイライト
-    const $ = cheerio.load(data.body);
+    const $ = cheerio.load(data.body, null, false);
     // 目次用に見出しの抜き出
     const headings = $('h1, h2').toArray();
     const tableOfContent = headings.map((data) => ({
@@ -111,6 +111,7 @@ export default {
       $(elm).html(result.value);
       $(elm).addClass('hljs');
     });
+
     return {
       ...data,
       body: $.html(),
