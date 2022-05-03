@@ -2,28 +2,13 @@
   <div class="grid grid-cols-layout grid-rows-layout">
     <div class="col-span-2 mb-[56px] md:mb-[80px]">
       <div
-        class="
-          flex flex-col
-          items-center
-          justify-center
-          w-full
-          px-[12px]
-          mt-[8px]
-          md:px-[24px] md:mt-[12px]
-        "
+        class="flex flex-col items-center justify-center w-full px-[12px] mt-[8px] md:px-[24px] md:mt-[12px]"
       >
         <picture v-if="data.pictogram">
           <img :src="data.pictogram.url" width="120px" hight="120px" />
         </picture>
         <h1
-          class="
-            max-w-[680px]
-            mt-[8px]
-            font-noto font-bold
-            text-[28px] text-warmGray-700
-            md:mt-[16px] md:text-[34px]
-            dark:text-warmGray-200
-          "
+          class="max-w-[680px] mt-[8px] font-noto font-bold text-[28px] text-warmGray-700 md:mt-[16px] md:text-[34px] dark:text-warmGray-200"
         >
           {{ data.title }}
         </h1>
@@ -34,36 +19,18 @@
           <div
             v-for="item in [1, 2, 3]"
             :key="item.index"
-            class="
-              w-[8px]
-              h-[8px]
-              bg-warmGray-500
-              rounded-full
-              md:w-[10px] md:h-[10px]
-              dark:bg-warmGray-300
-            "
+            class="w-[8px] h-[8px] bg-warmGray-500 rounded-full md:w-[10px] md:h-[10px] dark:bg-warmGray-300"
           ></div>
         </div>
         <p
-          class="
-            mt-[16px]
-            text-[14px] text-center text-warmGray-600
-            font-noto
-            md:text-[16px] md:mt-[20px]
-            dark:text-warmGray-200
-          "
+          class="mt-[16px] text-[14px] text-center text-warmGray-600 font-noto md:text-[16px] md:mt-[20px] dark:text-warmGray-200"
         >
           <span v-if="data.publishedAt" class="mr-[20px] md:mr-[26px]">
             <BaseIcon
               :icon-name="'calendar'"
               width="16"
               height="16"
-              class="
-                w-[14px]
-                h-[14px]
-                mr-[2px]
-                md:w-[16px] md:h-[16px] md:mr-[2px]
-              "
+              class="w-[14px] h-[14px] mr-[2px] md:w-[16px] md:h-[16px] md:mr-[2px]"
               ><IconCalendar
             /></BaseIcon>
             {{ data.publishedAt | formatDate }} 公開</span
@@ -73,12 +40,7 @@
               :icon-name="'update'"
               width="16"
               height="16"
-              class="
-                w-[14px]
-                h-[14px]
-                mr-[2px]
-                md:w-[16px] md:h-[16px] md:mr-[4px]
-              "
+              class="w-[14px] h-[14px] mr-[2px] md:w-[16px] md:h-[16px] md:mr-[4px]"
               ><IconUpdate
             /></BaseIcon>
             {{ data.updatedAt | formatDate }} 更新</span
@@ -90,26 +52,14 @@
     <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="data.body"></main>
       <div
-        class="
-          mt-[40px]
-          text-center text-warmGray-700
-          mdlg:mt-[52px]
-          dark:text-warmGray-200
-        "
+        class="mt-[40px] text-center text-warmGray-700 mdlg:mt-[52px] dark:text-warmGray-200"
       >
         <BaseSnsShareButton :text="title" />
       </div>
     </div>
 
     <div
-      class="
-        sticky
-        top-0
-        col-span-2
-        mdlg:col-span-1
-        mt-[20px]
-        mdlg:mt-[0px] mdlg:ml-[32px]
-      "
+      class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[20px] mdlg:mt-[0px] mdlg:ml-[32px]"
     >
       <div class="mdlg:sticky mdlg:top-[24px]">
         <LayoutTbleOfContent
