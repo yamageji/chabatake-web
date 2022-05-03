@@ -4,9 +4,11 @@
       <div
         class="flex flex-col items-center justify-center w-full px-[12px] mt-[8px] md:px-[24px] md:mt-[12px]"
       >
-        <picture v-if="data.pictogram">
-          <img :src="data.pictogram.url" width="120px" hight="120px" />
-        </picture>
+        <BasePictogram
+          :pictogram="data.pictogram"
+          class="text-warmGray-600 w-[100px] h-[100px] md:w-[120px] md:h-[120px] dark:text-warmGray-300"
+        >
+        </BasePictogram>
         <h1
           class="max-w-[680px] mt-[8px] font-noto font-bold text-[28px] text-warmGray-700 md:mt-[16px] md:text-[34px] dark:text-warmGray-200"
         >
@@ -25,7 +27,7 @@
         <p
           class="mt-[16px] text-[14px] text-center text-warmGray-600 font-noto md:text-[16px] md:mt-[20px] dark:text-warmGray-200"
         >
-          <span v-if="data.publishedAt" class="mr-[20px] md:mr-[26px]">
+          <span v-if="data.date" class="mr-[20px] md:mr-[26px]">
             <BaseIcon
               :icon-name="'calendar'"
               width="16"
@@ -33,7 +35,7 @@
               class="w-[14px] h-[14px] mr-[2px] md:w-[16px] md:h-[16px] md:mr-[2px]"
               ><IconCalendar
             /></BaseIcon>
-            {{ data.publishedAt | formatDate }} 公開</span
+            {{ data.date | formatDate }} 公開</span
           >
           <span v-if="data.updatedAt">
             <BaseIcon
@@ -79,6 +81,8 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 import hljs from 'highlight.js';
+import BasePictogram from '~/components/BasePictogram.vue';
+import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
 import IconUpdate from '~/components/icons/IconUpdate.vue';
 
@@ -86,6 +90,8 @@ export default {
   components: {
     IconCalendar,
     IconUpdate,
+    BaseSnsShareButton,
+    BasePictogram,
   },
 
   data() {
@@ -105,7 +111,7 @@ export default {
 
   head() {
     return {
-      title: this.title,
+      title: `${this.data.title} | chabatake WEB`,
       meta: [
         {
           hid: 'description',
@@ -132,6 +138,8 @@ export default {
           property: 'og:image',
           content: 'https://www.chabatake-web.com/images/chabatake-web_OGP.png',
         },
+        { name: 'twitter:card', content: 'summary' },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
       ],
     };
   },
@@ -152,7 +160,7 @@ export default {
     this.data = data;
 
     // 目次作成
-    const $ = cheerio.load(data.body);
+    const $ = cheerio.load(data.body, null, false);
     const headings = $('h1, h2').toArray();
     const tableOfContent = headings.map((d) => {
       return {
