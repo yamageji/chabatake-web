@@ -16,7 +16,7 @@
         dark:text-warmGray-200
       "
     >
-      Copyright © 2021 koyama shigehito
+      © 2021 koyama shigehito
     </p>
   </footer>
 </template>
