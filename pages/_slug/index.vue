@@ -97,16 +97,9 @@
 
     <div class="col-span-2 md:col-span-1">
       <main class="post" v-html="body"></main>
-      <BasePictogramDescriptionVue
-        class="
-          mt-10
-          flex
-          items-center
-          justify-center
-          p-16
-          border border-warmGray-500
-        "
-      ></BasePictogramDescriptionVue>
+      <BasePictogramDescriptionVue class="mt-10"></BasePictogramDescriptionVue>
+      <div>test：{{ pictLinc }}</div>
+
       <div
         class="
           mt-[40px]
