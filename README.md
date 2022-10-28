@@ -4,7 +4,7 @@ koyama shigehito の個人ブログです。WEB フロントエンド周りの�
 
 ## 技術構成
 
-- Nuxt（SSG）
+- Nuxt.js（SSG）
 - microCMS（headless CMS）
 - Netlify（Hosting）
-- tailwindcss（CSS framework）
+- Tailwind CSS（CSS framework）
