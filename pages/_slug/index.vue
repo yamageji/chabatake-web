@@ -2,36 +2,15 @@
   <div class="grid grid-cols-layout grid-rows-layout">
     <div class="col-span-2 mb-[56px] md:mb-[80px]">
       <div
-        class="
-          flex flex-col
-          items-center
-          justify-center
-          w-full
-          px-[12px]
-          mt-[8px]
-          md:px-[24px] md:mt-[12px]
-        "
+        class="flex flex-col items-center justify-center w-full px-[12px] mt-[8px] md:px-[24px] md:mt-[12px]"
       >
         <BasePictogram
           :pictogram="pictogram"
-          class="
-            text-warmGray-600
-            w-[100px]
-            h-[100px]
-            md:w-[120px] md:h-[120px]
-            dark:text-warmGray-300
-          "
+          class="text-warmGray-600 w-[100px] h-[100px] md:w-[120px] md:h-[120px] dark:text-warmGray-300"
         >
         </BasePictogram>
         <h1
-          class="
-            max-w-[680px]
-            mt-[8px]
-            font-noto font-bold
-            text-[28px] text-warmGray-700
-            md:mt-[16px] md:text-[34px]
-            dark:text-warmGray-200
-          "
+          class="max-w-[680px] mt-[8px] font-noto font-bold text-[28px] text-warmGray-700 md:mt-[16px] md:text-[34px] dark:text-warmGray-200"
         >
           {{ title }}
         </h1>
@@ -42,36 +21,18 @@
           <div
             v-for="data in [1, 2, 3]"
             :key="data.index"
-            class="
-              w-[8px]
-              h-[8px]
-              bg-warmGray-500
-              rounded-full
-              md:w-[10px] md:h-[10px]
-              dark:bg-warmGray-300
-            "
+            class="w-[8px] h-[8px] bg-warmGray-500 rounded-full md:w-[10px] md:h-[10px] dark:bg-warmGray-300"
           ></div>
         </div>
         <p
-          class="
-            mt-[16px]
-            text-[14px] text-center text-warmGray-600
-            font-noto
-            md:text-[16px] md:mt-[20px]
-            dark:text-warmGray-200
-          "
+          class="mt-[16px] text-[14px] text-center text-warmGray-600 font-noto md:text-[16px] md:mt-[20px] dark:text-warmGray-200"
         >
           <span v-if="date" class="mr-[20px] md:mr-[26px]">
             <BaseIcon
               :icon-name="'calendar'"
               width="16"
               height="16"
-              class="
-                w-[14px]
-                h-[14px]
-                mr-[2px]
-                md:w-[16px] md:h-[16px] md:mr-[2px]
-              "
+              class="w-[14px] h-[14px] mr-[2px] md:w-[16px] md:h-[16px] md:mr-[2px]"
               ><IconCalendar
             /></BaseIcon>
             {{ date | formatDate }} 公開</span
@@ -81,12 +42,7 @@
               :icon-name="'update'"
               width="16"
               height="16"
-              class="
-                w-[14px]
-                h-[14px]
-                mr-[2px]
-                md:w-[16px] md:h-[16px] md:mr-[4px]
-              "
+              class="w-[14px] h-[14px] mr-[2px] md:w-[16px] md:h-[16px] md:mr-[4px]"
               ><IconUpdate
             /></BaseIcon>
             {{ updatedAt | formatDate }} 更新</span
@@ -96,31 +52,25 @@
     </div>
 
     <div class="col-span-2 md:col-span-1">
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <main class="post" v-html="body"></main>
-      <BasePictogramDescriptionVue class="mt-10"></BasePictogramDescriptionVue>
-      <div>test：{{ pictLinc }}</div>
+      <BasePictogramDescriptionVue
+        class="mt-16"
+        :pictogram="pictogram"
+        :pict-link="pictLink"
+        :pict-name="pictName"
+        :pict-description="pictDescription"
+      ></BasePictogramDescriptionVue>
 
       <div
-        class="
-          mt-[40px]
-          text-center text-warmGray-700
-          mdlg:mt-[52px]
-          dark:text-warmGray-200
-        "
+        class="mt-[40px] text-center text-warmGray-700 mdlg:mt-[52px] dark:text-warmGray-200"
       >
         <BaseSnsShareButton :text="title" />
       </div>
     </div>
 
     <div
-      class="
-        sticky
-        top-0
-        col-span-2
-        mdlg:col-span-1
-        mt-[20px]
-        mdlg:mt-[0px] mdlg:ml-[32px]
-      "
+      class="sticky top-0 col-span-2 mdlg:col-span-1 mt-[20px] mdlg:mt-[0px] mdlg:ml-[32px]"
     >
       <div class="mdlg:sticky mdlg:top-[24px]">
         <LayoutTbleOfContent
@@ -160,7 +110,7 @@ export default {
     // HTMLパーサーで目次とコードのシンタックスハイライト
     const $ = cheerio.load(data.body, null, false);
     // 目次用に見出しの抜き出
-    const headings = $('h1, h2').toArray();
+    const headings = $('h2, h3').toArray();
     const tableOfContent = headings.map((data) => ({
       text: data.children[0].data,
       id: data.attribs.id,
@@ -232,7 +182,7 @@ export default {
   line-height: 1.9;
   overflow-wrap: break-word;
 
-  & > h1 {
+  & > h2 {
     position: relative;
     margin: 40px 0 8px;
     padding-left: 16px;
@@ -253,7 +203,7 @@ export default {
     }
   }
 
-  & > h2 {
+  & > h3 {
     margin: 28px 0 8px;
     padding-bottom: 2px;
     border-bottom: 1px solid var(--text-sub-color);
@@ -263,7 +213,7 @@ export default {
     letter-spacing: 0.02em;
   }
 
-  & > h3 {
+  & > h4 {
     margin: 18px 0 0;
     font-size: 20px;
     line-height: 1.7;
