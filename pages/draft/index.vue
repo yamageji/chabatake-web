@@ -53,7 +53,7 @@
 
     <div class="col-span-2 md:col-span-1">
       <!-- eslint-disable-next-line vue/no-v-html -->
-      <main class="post" v-html="body"></main>
+      <main class="post" v-html="data.body"></main>
       <BasePictogramDescriptionVue
         class="mt-16"
         :pictogram="data.pictogram"
