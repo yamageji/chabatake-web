@@ -1,6 +1,6 @@
 <template>
   <section
-    class="leading-7 pb-6 border border-warmGray-500 rounded-r-md rounded-b-md font-noto"
+    class="dark:text-warmGray-50 leading-7 pb-6 border border-warmGray-500 rounded-r-md rounded-b-md font-noto"
   >
     <div class="border-l-4 border-warmGray-500 pl-3 py-2 font-bold">
       今回のピクトグラム
