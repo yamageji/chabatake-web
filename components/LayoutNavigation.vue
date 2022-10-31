@@ -30,7 +30,7 @@
   </nav>
 </template>
 
-<script lnag="ts">
+<script lang="ts">
 import { defineComponent, useContext } from '@nuxtjs/composition-api';
 
 export default defineComponent({

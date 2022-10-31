@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script lnag="ts">
+<script lang="ts">
 import { computed, defineComponent, useContext } from '@nuxtjs/composition-api';
 import BaseIcon from './BaseIcon.vue';
 import IconTwitter from './icons/IconTwitter.vue';

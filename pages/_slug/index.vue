@@ -52,7 +52,16 @@
     </div>
 
     <div class="col-span-2 md:col-span-1">
+      <!-- eslint-disable-next-line vue/no-v-html -->
       <main class="post" v-html="body"></main>
+      <BasePictogramDescriptionVue
+        class="mt-16"
+        :pictogram="pictogram"
+        :pict-link="pictLink"
+        :pict-name="pictName"
+        :pict-description="pictDescription"
+      ></BasePictogramDescriptionVue>
+
       <div
         class="mt-[40px] text-center text-warmGray-700 mdlg:mt-[52px] dark:text-warmGray-200"
       >
@@ -84,6 +93,7 @@ import BasePictogram from '~/components/BasePictogram.vue';
 import BaseSnsShareButton from '~/components/BaseSnsShareButton.vue';
 import IconCalendar from '~/components/icons/IconCalendar.vue';
 import IconUpdate from '~/components/icons/IconUpdate.vue';
+import BasePictogramDescriptionVue from '~/components/BasePictogramDescription.vue';
 
 export default {
   components: {
@@ -91,6 +101,7 @@ export default {
     IconUpdate,
     BaseSnsShareButton,
     BasePictogram,
+    BasePictogramDescriptionVue,
   },
   async asyncData({ $microcms, params }) {
     const data = await $microcms.get({
@@ -99,7 +110,7 @@ export default {
     // HTMLパーサーで目次とコードのシンタックスハイライト
     const $ = cheerio.load(data.body, null, false);
     // 目次用に見出しの抜き出
-    const headings = $('h1, h2').toArray();
+    const headings = $('h2, h3').toArray();
     const tableOfContent = headings.map((data) => ({
       text: data.children[0].data,
       id: data.attribs.id,
@@ -171,7 +182,7 @@ export default {
   line-height: 1.9;
   overflow-wrap: break-word;
 
-  & > h1 {
+  & > h2 {
     position: relative;
     margin: 40px 0 8px;
     padding-left: 16px;
@@ -192,7 +203,7 @@ export default {
     }
   }
 
-  & > h2 {
+  & > h3 {
     margin: 28px 0 8px;
     padding-bottom: 2px;
     border-bottom: 1px solid var(--text-sub-color);
@@ -202,7 +213,7 @@ export default {
     letter-spacing: 0.02em;
   }
 
-  & > h3 {
+  & > h4 {
     margin: 18px 0 0;
     font-size: 20px;
     line-height: 1.7;

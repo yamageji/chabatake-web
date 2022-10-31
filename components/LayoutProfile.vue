@@ -17,8 +17,7 @@
     <p
       class="mt-[12px] md:px-[8px] text-[14px] leading-relaxed font-noto text-warmGray-800 dark:text-warmGray-200"
     >
-      デザイン / WEBフロントエンド周りの技術を中心に学習中です。<br />
-      一児の父。
+      桑沢デザイン研究所でデザインを学び、本作りの仕事をしています。現在、Web領域のデザインに興味を持ちUIデザインやフロントエンド開発について学習中です。猫２匹と０歳児の親として日々奮闘しています。
     </p>
 
     <!-- SNSリンク -->
@@ -66,7 +65,7 @@
   </div>
 </template>
 
-<script lnag="ts">
+<script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api';
 import IconGithub from './icons/IconGithub.vue';
 import IconTwitter from './icons/IconTwitter.vue';

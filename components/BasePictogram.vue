@@ -5,6 +5,7 @@ import PictoHinode from './pictograms/PictoHinode.vue';
 import PictoKombu from './pictograms/PictoKombu.vue';
 import PictoShimantoGawa from './pictograms/PictoShimantoGawa.vue';
 import PictoTaiyaki from './pictograms/PictoTaiyaki.vue';
+import PictoYakitori from './pictograms/PictoYakitori.vue';
 
 export default defineComponent({
   name: 'BasePictogram',
@@ -14,6 +15,7 @@ export default defineComponent({
     PictoTaiyaki,
     PictoHinode,
     PictoKombu,
+    PictoYakitori,
   },
   props: {
     pictogram: {
@@ -43,5 +45,6 @@ export default defineComponent({
     <PictoTaiyaki v-else-if="pictogram === 'taiyaki'" />
     <PictoHinode v-else-if="pictogram === 'hinode'" />
     <PictoKombu v-else-if="pictogram === 'kombu'" />
+    <PictoYakitori v-else-if="pictogram === 'yakitori'" />
   </BasePictoFrame>
 </template>
