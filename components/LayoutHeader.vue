@@ -3,19 +3,20 @@
     <div
       class="flex items-center justify-between col-span-2 h-[32px] mb-[16px] md:h-[40px] md:mb-[20px]"
     >
-      <h1>
+      <div>
         <a href="/page/1">
           <svg
             role="img"
             aria-label="chabatake WEB"
             class="w-[200px] h-[60px] md:w-[240px] fill-current text-warmGray-800 transition-text duration-200 ease-in-out dark:text-warmGray-200"
           >
+            <title>chabatake WEB</title>
             <use
               xlink:href="@/assets/image/chabatake-web_rogo.svg#chabatake-web_rogo"
             ></use>
           </svg>
         </a>
-      </h1>
+      </div>
       <!-- ダークモードボタンを後で実装 -->
       <!-- <BaseDarkmodeButton /> -->
     </div>
