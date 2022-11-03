@@ -291,17 +291,17 @@ export default {
   .post ::v-deep {
     font-size: 16px;
     line-height: 2.1;
-    & > h1 {
+    & > h2 {
       margin: 48px 0 16px;
       padding-left: 20px;
       font-size: 28px;
     }
-    & > h2 {
+    & > h3 {
       margin: 32px 0 16px;
       padding-bottom: 4px;
       font-size: 24px;
     }
-    & > h3 {
+    & > h4 {
       margin: 24px 0 0;
       font-size: 22px;
       letter-spacing: 0.02em;
@@ -313,13 +313,13 @@ export default {
   .post ::v-deep {
     color: var(--text-color-dark);
 
-    & > h1 {
+    & > h2 {
       &:before {
         background: var(--thema-color-dark);
       }
     }
 
-    & > h2 {
+    & > h3 {
       border-bottom: 1px solid var(--text-sub-color-dark);
     }
 
